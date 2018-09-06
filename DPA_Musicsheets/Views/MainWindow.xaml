@@ -16,7 +16,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="305*"/>
+            <RowDefinition Height="294*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
@@ -39,8 +40,8 @@
             <Button Command="{Binding LoadCommand}" Width="75" Content="Load" Margin="5"/>
             <local:MidiPlayerCtrl Margin="5" Grid.Row="2" Grid.Column="1"/>
         </StackPanel>
-        <local:LilypondViewerCtrl Margin="5" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
+        <local:LilypondViewerCtrl Margin="5,5,0,5" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Width="340" RenderTransformOrigin="0.432,0.499"/>
         <Label Content="{Binding CurrentState, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
-        <local:StaffViewerCtrl Margin="5" Grid.Row="2" Grid.Column="1"/>
+        <local:StaffViewerCtrl Margin="5" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>
