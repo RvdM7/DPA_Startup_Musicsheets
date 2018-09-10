@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Models.MusicNotes
 {
-    class Bar
+    class Bar : IMusicSymbol
     {
     }
 }

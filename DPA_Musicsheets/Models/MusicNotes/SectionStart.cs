@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Models.MusicNotes
 {
-    class SectionStart
+    class SectionStart : IMusicSymbol
     {
+        public string value => throw new NotImplementedException();
     }
 }
