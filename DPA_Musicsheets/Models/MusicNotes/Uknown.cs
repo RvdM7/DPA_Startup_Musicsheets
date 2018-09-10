@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Models.MusicNotes
 {
-    interface IMusicSymbol
+    class Uknown
     {
-        String value { get; }
     }
 }
