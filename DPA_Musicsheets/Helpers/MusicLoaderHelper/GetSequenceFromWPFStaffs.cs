@@ -11,14 +11,19 @@ namespace DPA_Musicsheets.Helpers
     class GetSequenceFromWPFStaffs
     {
 
+
         /// <summary>
         /// We create MIDI from WPF staffs, 2 different dependencies, not a good practice.
         /// TODO: Create MIDI from our own domain classes.
         /// TODO: Our code doesn't support repeats (rendering notes multiple times) in midi yet. Maybe with a COMPOSITE this will be easier?
         /// </summary>
         /// <returns></returns>
-        static public Sequence GetSequenceFromWPFStaff(List<MusicalSymbol> WPFStaffs, int beat, int beatBar, int bpm)
+        static public Sequence GetSequenceFromWPFStaff(List<MusicalSymbol> WPFStaffs)
         {
+            int bpm = Managers.MusicLoader._bpm;
+            int beatBar = Managers.MusicLoader._beatsPerBar;
+            int beat = Managers.MusicLoader._beatNote;
+
             List<string> notesOrderWithCrosses = new List<string>() { "c", "cis", "d", "dis", "e", "f", "fis", "g", "gis", "a", "ais", "b" };
             int absoluteTicks = 0;
 
