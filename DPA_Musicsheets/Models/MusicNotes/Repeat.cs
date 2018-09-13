@@ -8,5 +8,6 @@ namespace DPA_Musicsheets.Models.MusicNotes
 {
     class Repeat : IMusicSymbol
     {
+        public string value => throw new NotImplementedException();
     }
 }

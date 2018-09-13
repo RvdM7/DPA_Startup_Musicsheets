@@ -8,5 +8,6 @@ namespace DPA_Musicsheets.Models.MusicNotes
 {
     class Clef : IMusicSymbol
     {
+        public string value => throw new NotImplementedException();
     }
 }

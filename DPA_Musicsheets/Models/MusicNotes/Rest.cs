@@ -8,5 +8,6 @@ namespace DPA_Musicsheets.Models.MusicNotes
 {
     class Rest : IMusicNote
     {
+        public string value => throw new NotImplementedException();
     }
 }
