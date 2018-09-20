@@ -9,11 +9,9 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
 {
     class SaveToMidi
     {
-        internal void SaveToMidiF(string fileName)
+        public static void SaveToMidiF(string fileName)
         {
-            Sequence sequence = GetSequenceFromWPFStaffs.GetSequenceFromWPFStaff(WPFStaffs, _beatNote, _beatsPerBar, _bpm);
-
-
+            Sequence sequence = GetSequenceFromWPFStaffs.GetSequenceFromWPFStaff(Managers.MusicLoader.WPFStaffs);
             sequence.Save(fileName);
         }
     }

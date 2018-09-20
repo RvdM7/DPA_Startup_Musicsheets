@@ -10,11 +10,11 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
 {
     class SaveToPDF
     {
-        internal void SaveToPDFF(string fileName)
+        public static void SaveToPDFF(string fileName, string LilypondText)
         {
             string withoutExtension = Path.GetFileNameWithoutExtension(fileName);
             string tmpFileName = $"{fileName}-tmp.ly";
-            SaveToLilypond.SaveToLilypondF(tmpFileName);
+            SaveToLilypond.SaveToLilypondF(tmpFileName, LilypondText);
 
             string lilypondLocation = @"C:\Program Files (x86)\LilyPond\usr\bin\lilypond.exe";
             string sourceFolder = Path.GetDirectoryName(tmpFileName);

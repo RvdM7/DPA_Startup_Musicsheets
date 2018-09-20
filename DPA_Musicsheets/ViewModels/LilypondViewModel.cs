@@ -52,8 +52,8 @@ namespace DPA_Musicsheets.ViewModels
             // And viewmodels don't 
             _mainViewModel = mainViewModel;
             _musicLoader = musicLoader;
-            _musicLoader.LilypondViewModel = this;
-            
+            Managers.MusicLoader.LilypondViewModel = this;
+
             _text = "Your lilypond text will appear here.";
         }
 
@@ -83,8 +83,7 @@ namespace DPA_Musicsheets.ViewModels
                     {
                         _waitingForRender = false;
                         UndoCommand.RaiseCanExecuteChanged();
-
-                        _musicLoader.LoadLilypondIntoWpfStaffsAndMidi(LilypondText);
+                        Helpers.MusicLoaderHelper.LoadLilypondIntoWpfStaffsAndMidi.LoadLilypondIntoWpfStaffsAndMidiF(LilypondText);
                         _mainViewModel.CurrentState = "";
                     }
                 }, TaskScheduler.FromCurrentSynchronizationContext()); // Request from main thread.
@@ -117,15 +116,15 @@ namespace DPA_Musicsheets.ViewModels
                 string extension = Path.GetExtension(saveFileDialog.FileName);
                 if (extension.EndsWith(".mid"))
                 {
-                    _musicLoader.SaveToMidi(saveFileDialog.FileName);
+                    Helpers.MusicLoaderHelper.SaveToMidi.SaveToMidiF(saveFileDialog.FileName);
                 }
                 else if (extension.EndsWith(".ly"))
                 {
-                    _musicLoader.SaveToLilypond(saveFileDialog.FileName);
+                    Helpers.MusicLoaderHelper.SaveToLilypond.SaveToLilypondF(saveFileDialog.FileName, LilypondText);
                 }
                 else if (extension.EndsWith(".pdf"))
                 {
-                    _musicLoader.SaveToPDF(saveFileDialog.FileName);
+                    Helpers.MusicLoaderHelper.SaveToPDF.SaveToPDFF(saveFileDialog.FileName, LilypondText);
                 }
                 else
                 {

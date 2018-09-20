@@ -61,7 +61,7 @@ namespace DPA_Musicsheets.ViewModels
 
         public ICommand LoadCommand => new RelayCommand(() =>
         {
-            _musicLoader.OpenFile(FileName);
+            Helpers.MusicLoaderHelper.OpenFile.OpenRequestedFile(FileName);
         });
 
         #region Focus and key commands, these can be used for implementing hotkeys

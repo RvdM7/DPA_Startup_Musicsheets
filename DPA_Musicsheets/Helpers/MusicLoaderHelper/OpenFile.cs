@@ -18,8 +18,12 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
         /// TODO: Remove the calling of the outer viewmodel layer. We want to be able reuse this in an ASP.NET Core application for example.
         /// </summary>
         /// <param name="fileName"></param>
-        static public void OpenRequestedFile(string fileName, Sequence MidiSequence, MidiPlayerViewModel MidiPlayerViewModel, LilypondViewModel LilypondViewModel, string LilypondText)
+        static public void OpenRequestedFile(string fileName)
         {
+            MidiPlayerViewModel MidiPlayerViewModel = Managers.MusicLoader.MidiPlayerViewModel;
+            Sequence MidiSequence = Managers.MusicLoader.MidiSequence;
+            LilypondViewModel LilypondViewModel = Managers.MusicLoader.LilypondViewModel;
+            string LilypondText = Managers.MusicLoader.LilypondText;
             if (Path.GetExtension(fileName).EndsWith(".mid"))
             {
                 MidiSequence = new Sequence();

@@ -9,7 +9,7 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
 {
     class SaveToLilypond
     {
-        static internal void SaveToLilypondF(string fileName, string LilypondText)
+        static public void SaveToLilypondF(string fileName, string LilypondText)
         {
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {

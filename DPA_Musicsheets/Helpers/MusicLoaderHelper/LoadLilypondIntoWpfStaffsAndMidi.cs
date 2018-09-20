@@ -18,8 +18,13 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
         /// TODO: Create our own domain classes to be independent of external libraries/languages.
         /// </summary>
         /// <param name="content"></param>
-        static public void LoadLilypondIntoWpfStaffsAndMidiF(string content, Sequence MidiSequence, MidiPlayerViewModel MidiPlayerViewModel, List<MusicalSymbol> WPFStaffs, StaffsViewModel StaffsViewModel)
+        static public void LoadLilypondIntoWpfStaffsAndMidiF(string content)
         {
+            Sequence MidiSequence = Managers.MusicLoader.MidiSequence;
+            List<MusicalSymbol> WPFStaffs = Managers.MusicLoader.WPFStaffs;
+            MidiPlayerViewModel MidiPlayerViewModel = Managers.MusicLoader.MidiPlayerViewModel;
+            StaffsViewModel StaffsViewModel = Managers.MusicLoader.StaffsViewModel;
+
 
             string LilypondText = content; // Note: was eerst een globale variabele
             content = content.Trim().ToLower().Replace("\r\n", " ").Replace("\n", " ").Replace("  ", " ");
