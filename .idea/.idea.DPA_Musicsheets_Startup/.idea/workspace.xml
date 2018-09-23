@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41e9ea13-de24-48bd-9a57-375242863aae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DPA_Musicsheets/DPA_Musicsheets.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DPA_Musicsheets/DPA_Musicsheets.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="566317041">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.remote" value="1" />
+          <entry key="git.branch.create.new" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="1508" />
+          <entry key="txt" value="38" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="1508" />
+          <entry key="PLAIN_TEXT" value="38" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MidiToLilyHelper.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1497">
+              <folding>
+                <marker date="1537708608694" expanded="true" signature="6:115" ph="..." />
+                <marker date="1537708608694" expanded="true" signature="151:4390" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="158:302" ph="/// TODO: Static classes with static helper methods are not done. Can a better domain class help with this? ... " />
+                <marker date="1537708608694" expanded="true" signature="343:4388" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="519:2812" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="691:793" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="1006:2748" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="1144:2734" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="2242:2688" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="2532:2620" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="2892:4382" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="3011:4047" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="4136:4224" ph="{...}" />
+                <marker date="1537708608694" expanded="true" signature="4258:4346" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Clef.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding>
+                <marker date="1537734909827" expanded="true" signature="43:123" ph="{...}" />
+                <marker date="1537734909827" expanded="true" signature="66:121" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <marker date="1537735839526" expanded="true" signature="43:161" ph="{...}" />
+                <marker date="1537735839526" expanded="true" signature="71:159" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <marker date="1537713232134" expanded="true" signature="43:180" ph="{...}" />
+                <marker date="1537713232134" expanded="true" signature="82:178" ph="{...}" />
+                <marker date="1537713232134" expanded="true" signature="152:172" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/NoteDuration.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding>
+                <marker date="1537711204902" expanded="true" signature="43:363" ph="{...}" />
+                <marker date="1537711204902" expanded="true" signature="122:361" ph="{...}" />
+                <marker date="1537711204902" expanded="true" signature="330:355" ph="/* 1/32 ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchModifier.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding>
+                <marker date="1537735537042" expanded="true" signature="43:131" ph="{...}" />
+                <marker date="1537735537042" expanded="true" signature="75:129" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <marker date="1537735049008" expanded="true" signature="43:246" ph="{...}" />
+                <marker date="1537735049008" expanded="true" signature="80:244" ph="{...}" />
+                <marker date="1537735049008" expanded="true" signature="185:238" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <marker date="1537735643880" expanded="true" signature="43:598" ph="{...}" />
+                <marker date="1537735643880" expanded="true" signature="83:596" ph="{...}" />
+                <marker date="1537735643880" expanded="true" signature="432:590" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MusicLoader.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+              <folding>
+                <marker date="1537709409032" expanded="false" signature="7:378" ph="..." />
+                <marker date="1537709409032" expanded="true" signature="414:1557" ph="{...}" />
+                <marker date="1537709409032" expanded="true" signature="421:640" ph="/// This is the one and only god class in the application. ... " />
+                <marker date="1537709409032" expanded="true" signature="669:1555" ph="{...}" />
+                <marker date="1537709409032" expanded="true" signature="684:1042" ph="Properties" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Helpers/MusicLoaderHelper/LoadMidiIntoLilypond.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-58">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+              <folding>
+                <marker date="1537709409030" expanded="true" signature="6:178" ph="..." />
+                <marker date="1537709409030" expanded="true" signature="231:6275" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="264:6273" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="279:490" ph="/// TODO: Create our own domain classes to be independent of external libraries/languages. ... " />
+                <marker date="1537709409030" expanded="true" signature="560:6267" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="1219:6167" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="1337:6153" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="1446:1706" ph="/* TODO: Split this switch statements and create separate logic. ... */" />
+                <marker date="1537709409030" expanded="true" signature="1759:6135" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="1960:4044" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="3032:3923" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="3641:3885" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="4300:6078" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="4412:4815" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="4878:5878" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="5562:5780" ph="{...}" />
+                <marker date="1537709409030" expanded="true" signature="5915:6048" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="v2" />
+      </map>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Helpers/MusicLoaderHelper/OpenFile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Helpers/MusicLoaderHelper/LoadMidiIntoLilypond.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/MainViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/MidiPlayerViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/StaffsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/LilypondViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/ViewModelLocator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Bar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Clef.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/NoteDuration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MusicLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MidiToLilyHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/NoteDuration.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Bar.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Clef.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchModifier.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs" />
+        <option value="$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="203" />
+    <option name="y" value="-22" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DPA_Musicsheets" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DPA_Musicsheets" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Managers" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DPA_Musicsheets" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DPA_Musicsheets" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="MusicNotes" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="DPA_Musicsheets_Startup" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DPA_Musicsheets" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ViewModels" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/DPA_Musicsheets/bin/Debug/DPA_Musicsheets.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA_Musicsheets/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/DPA_Musicsheets/DPA_Musicsheets.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.6.1" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41e9ea13-de24-48bd-9a57-375242863aae" name="Default Changelist" comment="" />
+      <created>1537708618011</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537708618011</updated>
+      <workItem from="1537708620903" duration="7357000" />
+    </task>
+    <task id="LOCAL-00001" summary="Implement basic domain classes">
+      <created>1537711802921</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1537711802921</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implement basic domain classes">
+      <created>1537711871551</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537711871551</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7357000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1066" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25198728" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32897604" />
+      <window_info anchor="bottom" id="Build" weight="0.32897604" />
+      <window_info anchor="bottom" id="NuGet" order="0" />
+      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="2" weight="0.37363833" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" visible="true" weight="0.20152505" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.32897604" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="right" id="Errors In Solution" order="0" weight="0.3298887" />
+      <window_info anchor="right" id="Database" order="1" weight="0.3298887" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="2" visible="true" weight="0.2027027" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement basic domain classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement basic domain classes" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/MainViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+          <folding>
+            <marker date="1537709409041" expanded="false" signature="6:347" ph="..." />
+            <marker date="1537709409041" expanded="true" signature="385:2750" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="434:2748" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="505:736" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="531:593" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="609:726" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="746:919" ph="/// The current state can be used to display some text. ... " />
+            <marker date="1537709409041" expanded="true" signature="992:1139" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="1237:1493" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="1560:1841" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="1751:1831" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="1906:2002" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2014:2742" ph="Focus and key commands, these can be used for implementing hotkeys" />
+            <marker date="1537709409041" expanded="true" signature="2157:2231" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2316:2389" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2457:2518" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2594:2654" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Helpers/MusicLoaderHelper/OpenFile.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+          <folding>
+            <marker date="1537709409030" expanded="false" signature="6:197" ph="..." />
+            <marker date="1537709409030" expanded="true" signature="250:2170" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="271:2168" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="286:685" ph="/// Opens a file. ... " />
+            <marker date="1537709409030" expanded="true" signature="747:2162" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1145:1488" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1554:1896" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1690:1767" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1913:2057" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Bar.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <marker date="1537711035932" expanded="true" signature="6:65" ph="..." />
+            <marker date="1537711035932" expanded="true" signature="110:221" ph="{...}" />
+            <marker date="1537711035932" expanded="true" signature="133:219" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/LilypondViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="50" column="60" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+          <folding>
+            <marker date="1537709409040" expanded="false" signature="6:259" ph="..." />
+            <marker date="1537709409040" expanded="true" signature="297:5264" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="350:5262" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="570:780" ph="/// This text will be in the textbox. ... " />
+            <marker date="1537709409040" expanded="true" signature="815:1184" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="841:899" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="915:1174" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="992:1071" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="1478:1901" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="1501:1687" ph="/* TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer a ... */" />
+            <marker date="1537709409040" expanded="true" signature="1954:2102" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="2112:2255" ph="/// This occurs when the text in the textbox has changed. This can either be by loading or typing. ... " />
+            <marker date="1537709409040" expanded="true" signature="2350:3302" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="2453:3292" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="2703:3196" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="2831:3178" ph="{...}" />
+            <marker date="1537709409040" expanded="false" signature="3314:5256" ph="Commands for buttons like Undo, Redo and SaveAs" />
+            <marker date="1537709409040" expanded="true" signature="3435:3569" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="3700:3880" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="4001:5187" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="4024:4183" ph="/* TODO: In the application a lot of classes know which filetypes are supported. Lots and lots of repeated code h ... */" />
+            <marker date="1537709409040" expanded="true" signature="4352:5177" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="4493:4624" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="4676:4829" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="4882:5025" ph="{...}" />
+            <marker date="1537709409040" expanded="true" signature="5046:5163" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/ViewModelLocator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <folding>
+            <marker date="1537708608701" expanded="true" signature="6:130" ph="..." />
+            <marker date="1537708608701" expanded="true" signature="168:1321" ph="{...}" />
+            <marker date="1537708608701" expanded="true" signature="175:278" ph="/// This is the MVVM-Light implementation of dependency injection. ... " />
+            <marker date="1537708608701" expanded="true" signature="312:1319" ph="{...}" />
+            <marker date="1537708608701" expanded="true" signature="352:741" ph="{...}" />
+            <marker date="1537708608701" expanded="true" signature="1212:1313" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/StaffsViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1537709409042" expanded="false" signature="6:385" ph="..." />
+            <marker date="1537709409042" expanded="true" signature="423:1608" ph="{...}" />
+            <marker date="1537709409042" expanded="true" signature="474:1606" ph="{...}" />
+            <marker date="1537709409042" expanded="true" signature="599:755" ph="/// Constructor ... " />
+            <marker date="1537709409042" expanded="true" signature="811:1077" ph="{...}" />
+            <marker date="1537709409042" expanded="true" signature="1087:1384" ph="/// SetStaffs fills the observablecollection with new symbols.  ... " />
+            <marker date="1537709409042" expanded="true" signature="1444:1600" ph="{...}" />
+            <marker date="1537709409042" expanded="true" signature="1526:1590" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/ViewModels/MidiPlayerViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+          <folding>
+            <marker date="1537709409041" expanded="true" signature="6:139" ph="..." />
+            <marker date="1537709409041" expanded="true" signature="177:4078" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="184:321" ph="/// The viewmodel for playing midi sequences. ... " />
+            <marker date="1537709409041" expanded="true" signature="374:4076" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="465:590" ph="/* This sequencer creates a possibility to play a sequence. ... */" />
+            <marker date="1537709409041" expanded="true" signature="666:899" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="740:889" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="960:1792" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="983:1180" ph="/* The OutputDevice is a midi device on the midi channel of your computer. ... */" />
+            <marker date="1537709409041" expanded="true" signature="1497:1594" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="1830:2001" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2011:2365" ph="/* Wanneer een channelmessage langskomt sturen we deze direct door naar onze audio. ... */" />
+            <marker date="1537709409041" expanded="true" signature="2449:2950" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2475:2550" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2651:2940" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="2682:2926" ph="/* Don't crash when we can't play ... */" />
+            <marker date="1537709409041" expanded="false" signature="2960:3771" ph="buttons for play, stop, pause" />
+            <marker date="1537709409041" expanded="true" signature="3063:3243" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="3100:3233" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="3360:3507" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="3593:3703" ph="{...}" />
+            <marker date="1537709409041" expanded="true" signature="3781:3880" ph="/// Stop the player and clear the sequence on cleanup. ... " />
+            <marker date="1537709409041" expanded="true" signature="3919:4070" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MidiToLilyHelper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1497">
+          <folding>
+            <marker date="1537708608694" expanded="true" signature="6:115" ph="..." />
+            <marker date="1537708608694" expanded="true" signature="151:4390" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="158:302" ph="/// TODO: Static classes with static helper methods are not done. Can a better domain class help with this? ... " />
+            <marker date="1537708608694" expanded="true" signature="343:4388" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="519:2812" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="691:793" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="1006:2748" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="1144:2734" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="2242:2688" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="2532:2620" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="2892:4382" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="3011:4047" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="4136:4224" ph="{...}" />
+            <marker date="1537708608694" expanded="true" signature="4258:4346" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/NoteDuration.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <marker date="1537711204902" expanded="true" signature="43:363" ph="{...}" />
+            <marker date="1537711204902" expanded="true" signature="122:361" ph="{...}" />
+            <marker date="1537711204902" expanded="true" signature="330:355" ph="/* 1/32 ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/BaseNote.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <marker date="1537735049008" expanded="true" signature="43:246" ph="{...}" />
+            <marker date="1537735049008" expanded="true" signature="80:244" ph="{...}" />
+            <marker date="1537735049008" expanded="true" signature="185:238" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchType.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <marker date="1537735839526" expanded="true" signature="43:161" ph="{...}" />
+            <marker date="1537735839526" expanded="true" signature="71:159" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/RestNote.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <marker date="1537713232134" expanded="true" signature="43:180" ph="{...}" />
+            <marker date="1537713232134" expanded="true" signature="82:178" ph="{...}" />
+            <marker date="1537713232134" expanded="true" signature="152:172" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/PitchModifier.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <marker date="1537735537042" expanded="true" signature="43:131" ph="{...}" />
+            <marker date="1537735537042" expanded="true" signature="75:129" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/MusicNote.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <marker date="1537735643880" expanded="true" signature="43:598" ph="{...}" />
+            <marker date="1537735643880" expanded="true" signature="83:596" ph="{...}" />
+            <marker date="1537735643880" expanded="true" signature="432:590" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Managers/MusicLoader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <marker date="1537709409032" expanded="false" signature="7:378" ph="..." />
+            <marker date="1537709409032" expanded="true" signature="414:1557" ph="{...}" />
+            <marker date="1537709409032" expanded="true" signature="421:640" ph="/// This is the one and only god class in the application. ... " />
+            <marker date="1537709409032" expanded="true" signature="669:1555" ph="{...}" />
+            <marker date="1537709409032" expanded="true" signature="684:1042" ph="Properties" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Helpers/MusicLoaderHelper/LoadMidiIntoLilypond.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <marker date="1537709409030" expanded="true" signature="6:178" ph="..." />
+            <marker date="1537709409030" expanded="true" signature="231:6275" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="264:6273" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="279:490" ph="/// TODO: Create our own domain classes to be independent of external libraries/languages. ... " />
+            <marker date="1537709409030" expanded="true" signature="560:6267" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1219:6167" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1337:6153" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1446:1706" ph="/* TODO: Split this switch statements and create separate logic. ... */" />
+            <marker date="1537709409030" expanded="true" signature="1759:6135" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="1960:4044" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="3032:3923" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="3641:3885" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="4300:6078" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="4412:4815" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="4878:5878" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="5562:5780" ph="{...}" />
+            <marker date="1537709409030" expanded="true" signature="5915:6048" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPA_Musicsheets/Models/MusicNotes/Clef.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <marker date="1537734909827" expanded="true" signature="43:123" ph="{...}" />
+            <marker date="1537734909827" expanded="true" signature="66:121" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

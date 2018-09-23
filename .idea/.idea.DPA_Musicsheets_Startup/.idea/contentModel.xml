@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Zain\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Zain\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_DPA_Musicsheets_Startup.329887752.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Zain\Projects\csharp\DPA_Startup_Musicsheets" t="IncludeFlat">
+      <e p="DPA_Musicsheets" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClassDiagrams" t="Include">
+          <e p="CD_DPA_Musicsheets.cd" t="Include" />
+          <e p="CD_MidiLibrary.cd" t="Include" />
+          <e p="CD_PSAMStaffsLibrary.cd" t="Include" />
+        </e>
+        <e p="DPA_Musicsheets.csproj" t="IncludeRecursive" />
+        <e p="Files" t="Include">
+          <e p="Alle-eendjes-zwemmen-in-het-water.ly" t="Include" />
+          <e p="Alle-eendjes-zwemmen-in-het-water.mid" t="Include" />
+          <e p="Eenvoudige voorbeeldfiles" t="Include">
+            <e p="Doorklinken.ly" t="Include" />
+            <e p="Doorklinken.pdf" t="Include" />
+            <e p="Herhaling_metAlternatief.ly" t="Include" />
+            <e p="Keywords.ly" t="Include" />
+            <e p="Keywords.pdf" t="Include" />
+            <e p="KommasApostrof.ly" t="Include" />
+            <e p="Maatstrepen.ly" t="Include" />
+            <e p="Maatwissel.ly" t="Include" />
+            <e p="Maatwissel.pdf" t="Include" />
+            <e p="Mollen_Kruizen.ly" t="Include" />
+            <e p="Nootlengten.ly" t="Include" />
+            <e p="Nootlengten.pdf" t="Include" />
+            <e p="Punten.ly" t="Include" />
+            <e p="Punten.pdf" t="Include" />
+            <e p="Rusten.ly" t="Include" />
+            <e p="Standaard_noten.ly" t="Include" />
+            <e p="Standaard_noten.pdf" t="Include" />
+          </e>
+          <e p="Twee-emmertjes-water-halen.ly" t="Include" />
+          <e p="Twee-emmertjes-water-halen.mid" t="Include" />
+          <e p="Twee-emmertjes-water-halen_ZonderHerhalingMaatwisseling.ly" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="MusicLoaderHelper" t="Include">
+            <e p="GetSequenceFromWPFStaffs.cs" t="Include" />
+            <e p="GetStaffsFromTokens.cs" t="Include" />
+            <e p="GetTokensFromLilypond.cs" t="Include" />
+            <e p="LoadLilypondIntoWpfStaffsAndMidi.cs" t="Include" />
+            <e p="LoadMidiIntoLilypond.cs" t="Include" />
+            <e p="OpenFile.cs" t="Include" />
+            <e p="SaveToLilypond.cs" t="Include" />
+            <e p="SaveToMidi.cs" t="Include" />
+            <e p="SaveToPDF.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Managers" t="Include">
+          <e p="MidiToLilyHelper.cs" t="Include" />
+          <e p="MusicLoader.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="LilypondToken.cs" t="Include" />
+          <e p="LilypondTokenKind.cs" t="Include" />
+          <e p="MusicNotes" t="Include">
+            <e p="Bar.cs" t="Include" />
+            <e p="BaseNote.cs" t="Include" />
+            <e p="Clef.cs" t="Include" />
+            <e p="MusicNote.cs" t="Include" />
+            <e p="NoteDuration.cs" t="Include" />
+            <e p="PitchModifier.cs" t="Include" />
+            <e p="PitchType.cs" t="Include" />
+            <e p="RestNote.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="LilypondViewModel.cs" t="Include" />
+          <e p="MainViewModel.cs" t="Include" />
+          <e p="MidiPlayerViewModel.cs" t="Include" />
+          <e p="StaffsViewModel.cs" t="Include" />
+          <e p="ViewModelLocator.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="App.xaml" t="Include" />
+          <e p="App.xaml.cs" t="Include" />
+          <e p="LilypondViewerCtrl.xaml" t="Include" />
+          <e p="LilypondViewerCtrl.xaml.cs" t="Include" />
+          <e p="MainWindow.xaml" t="Include" />
+          <e p="MainWindow.xaml.cs" t="Include" />
+          <e p="MidiPlayerCtrl.xaml" t="Include" />
+          <e p="MidiPlayerCtrl.xaml.cs" t="Include" />
+          <e p="StaffViewCtrl.xaml" t="Include" />
+          <e p="StaffViewCtrl.xaml.cs" t="Include" />
+        </e>
+      </e>
+      <e p="DPA_Musicsheets_Startup.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
