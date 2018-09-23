@@ -1,13 +1,10 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace DPA_Musicsheets.Models.MusicNotes
 {
-    class Bar : IMusicSymbol
+    public class Bar
     {
-        public string value => throw new NotImplementedException();
+        public List<BaseNote> Notes { get; set; } = new List<BaseNote>();
     }
 }
