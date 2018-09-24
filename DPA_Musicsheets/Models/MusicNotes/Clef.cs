@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DPA_Musicsheets.Models.MusicNotes
 {
-    class Clef : IMusicSymbol
+    public enum Clef
     {
-        public string value => throw new NotImplementedException();
+        Treble,
+        Alto,
+        Bass
     }
 }
