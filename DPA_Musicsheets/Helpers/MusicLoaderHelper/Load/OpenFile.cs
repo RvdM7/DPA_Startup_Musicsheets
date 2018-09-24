@@ -24,6 +24,7 @@ namespace DPA_Musicsheets.Helpers.MusicLoaderHelper
             Sequence MidiSequence = Managers.MusicLoader.MidiSequence;
             LilypondViewModel LilypondViewModel = Managers.MusicLoader.LilypondViewModel;
             string LilypondText = Managers.MusicLoader.LilypondText;
+
             if (Path.GetExtension(fileName).EndsWith(".mid"))
             {
                 MidiSequence = new Sequence();

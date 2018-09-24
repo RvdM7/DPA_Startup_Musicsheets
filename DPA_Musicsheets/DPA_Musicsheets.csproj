@@ -103,15 +103,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\MusicLoaderHelper\GetSequenceFromWPFStaffs.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\GetStaffsFromTokens.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\GetTokensFromLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\LoadLilypondIntoWpfStaffsAndMidi.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\LoadMidiIntoLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\OpenFile.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\SaveToLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\SaveToMidi.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\SaveToPDF.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Get\GetSequenceFromWPFStaffs.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Get\GetStaffsFromTokens.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Get\GetTokensFromLilypond.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Load\LoadLilypondIntoWpfStaffsAndMidi.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Load\LoadMidiIntoLilypond.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Load\OpenFile.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToLilypond.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToMidi.cs" />
+    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToPDF.cs" />
     <Compile Include="Managers\MidiToLilyHelper.cs" />
     <Compile Include="Managers\MusicLoader.cs" />
     <Compile Include="Models\LilypondToken.cs" />
