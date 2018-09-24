@@ -124,6 +124,11 @@
     <Compile Include="Models\MusicNotes\PitchModifier.cs" />
     <Compile Include="Models\MusicNotes\PitchType.cs" />
     <Compile Include="Models\MusicNotes\RestNote.cs" />
+    <Compile Include="Refactoring\Load\LoadLilypond.cs" />
+    <Compile Include="Refactoring\Load\LoadMidi.cs" />
+    <Compile Include="Refactoring\Main.cs" />
+    <Compile Include="Refactoring\MusicLoader.cs" />
+    <Compile Include="Refactoring\OpenFile.cs" />
     <Compile Include="ViewModels\MidiPlayerViewModel.cs" />
     <Compile Include="ViewModels\StaffsViewModel.cs" />
     <Compile Include="Views\MidiPlayerCtrl.xaml.cs">
