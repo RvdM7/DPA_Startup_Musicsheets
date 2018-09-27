@@ -12,29 +12,9 @@ namespace DPA_Musicsheets.Refactoring
     {
         public void openFile(string fileName)
         {
-            if (Path.GetExtension(fileName).EndsWith(".mid"))
-            {
-                //handle midi file
+            //load file
 
-                throw new NotImplementedException();
-
-                LoadMidi lm = new LoadMidi();
-                lm.loadMidi();
-            }
-            else if (Path.GetExtension(fileName).EndsWith(".ly"))
-            {
-                //handle lilypond file
-
-                throw new NotImplementedException();
-
-                LoadLilypond ll = new LoadLilypond();
-                ll.loadLilypond();
-            }
-            else
-            {
-                //handle unknown
-                throw new NotSupportedException($"File extension  {Path.GetExtension(fileName)} is not supproted.");
-            }
+            //return file
         }
     }
 }
