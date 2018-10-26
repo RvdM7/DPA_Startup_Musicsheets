@@ -1,22 +1,65 @@
-﻿using DPA_Musicsheets.Models.MusicNotes;
-using DPA_Musicsheets.Refactoring.Load;
+﻿using DPA_Musicsheets.Refactoring.Load;
+using DPA_Musicsheets.Refactoring.Tokens;
+using DPA_Musicsheets.ViewModels; // TODO remove
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring
 {
-    class MusicLoader
+    public class MusicLoader
     {
-        LoadLocator ll = new LoadLocator();
+        List<IToken> music;
+        public static MainViewModel MainViewModel { get; set; }
+        public static LilypondViewModel LilypondViewModel { get; set; }
+        public static MidiPlayerViewModel MidiPlayerViewModel { get; set; }
+        public static StaffsViewModel StaffsViewModel { get; set; }
 
         public void loadMusic(String fileName)
         {
-            IMusicLoader ml = ll.LocateLoader(fileName);
-            LinkedList<BaseNote> lList = ml.loadMusic(fileName);
+            LoadLocator ll = new LoadLocator();
+            ILoader fl = ll.LocateLoader(fileName);
+            music = fl.loadMusic();
+
+            //LinkedList<IMusicToken> lList = ml.loadMusic(fileName);
+            showMusic();
+        }
+
+        public void showMusic()
+        {
+            //ShowWPFStaffs ss = new ShowWPFStaffs();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < music.Count; i++)
+            {
+                try
+                {
+                    if (music[i] is INote)
+                    {
+                        INote note = (INote)music[i];
+                        sb.Append(note.getHeight().ToString());
+                        sb.AppendLine(note.getLength().ToString());
+                        sb.AppendLine(note.ToString());
+                    }
+                    else if (music[i] is MetaToken)
+                    {
+                        MetaToken mt = (MetaToken)music[i];
+                        sb.Append("BPM: ");
+                        sb.AppendLine(mt.bpm.ToString());
+                        sb.Append("beatNote: ");
+                        sb.AppendLine(mt.beatNote.ToString());
+                        sb.Append("beatsPerBar: ");
+                        sb.AppendLine(mt.beatsPerBar.ToString());
+                    }
+
+                    sb.AppendLine();
+                }
+                catch (Exception e)
+                {
+                    continue;
+                }
+            }
+            LilypondViewModel.LilypondTextLoaded(sb.ToString());
         }
     }
 }

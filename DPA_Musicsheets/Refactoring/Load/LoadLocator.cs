@@ -9,19 +9,20 @@ namespace DPA_Musicsheets.Refactoring.Load
 {
     class LoadLocator
     {
-        public IMusicLoader LocateLoader(string fileName)
+        public ILoader LocateLoader(string fileName)
         {
             if (Path.GetExtension(fileName).EndsWith(".mid"))
             {
                 //handle midi file
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
+                return new LoadMidi(fileName);
 
             }
             else if (Path.GetExtension(fileName).EndsWith(".ly"))
             {
                 //handle lilypond file
                 //throw new NotImplementedException();
-                return new LoadLilypond();
+                return new LoadLilypond(fileName);
             }
             else
             {

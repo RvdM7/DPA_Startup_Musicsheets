@@ -114,22 +114,42 @@
     <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToPDF.cs" />
     <Compile Include="Managers\MidiToLilyHelper.cs" />
     <Compile Include="Managers\MusicLoader.cs" />
+    <Compile Include="Models\Commandos\Alternative.cs" />
+    <Compile Include="Models\Commandos\Bar.cs" />
+    <Compile Include="Models\Commandos\Clef.cs" />
+    <Compile Include="Models\Commandos\ICommando.cs" />
+    <Compile Include="Models\Commandos\Relative.cs" />
+    <Compile Include="Models\Commandos\Repeat.cs" />
+    <Compile Include="Models\Commandos\SectionEnd.cs" />
+    <Compile Include="Models\Commandos\SectionStart.cs" />
+    <Compile Include="Models\Commandos\Tempo.cs" />
+    <Compile Include="Models\Commandos\Time.cs" />
     <Compile Include="Models\LilypondToken.cs" />
     <Compile Include="Models\LilypondTokenKind.cs" />
-    <Compile Include="Models\MusicNotes\Bar.cs" />
     <Compile Include="Models\MusicNotes\BaseNote.cs" />
-    <Compile Include="Models\MusicNotes\Clef.cs" />
     <Compile Include="Models\MusicNotes\MusicNote.cs" />
     <Compile Include="Models\MusicNotes\NoteDuration.cs" />
     <Compile Include="Models\MusicNotes\PitchModifier.cs" />
     <Compile Include="Models\MusicNotes\PitchType.cs" />
     <Compile Include="Models\MusicNotes\RestNote.cs" />
-    <Compile Include="Refactoring\Load\IMusicLoader.cs" />
+    <Compile Include="Models\IMusicToken.cs" />
+    <Compile Include="Refactoring\ConvertToPSAM.cs" />
+    <Compile Include="Refactoring\Load\ILoader.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\MidiHelper.cs" />
     <Compile Include="Refactoring\Load\LoadLilypond.cs" />
     <Compile Include="Refactoring\Load\LoadLocator.cs" />
     <Compile Include="Refactoring\Load\LoadMidi.cs" />
     <Compile Include="Refactoring\MusicLoader.cs" />
+    <Compile Include="Refactoring\ShowWPFStaffs.cs" />
+    <Compile Include="Refactoring\Tokens\IToken.cs" />
+    <Compile Include="Refactoring\Tokens\MetaToken.cs" />
+    <Compile Include="Refactoring\Tokens\Note.cs" />
     <Compile Include="Refactoring\OpenFile.cs" />
+    <Compile Include="Refactoring\Tokens\NoteDecorators\DotDecorator.cs" />
+    <Compile Include="Refactoring\Tokens\NoteDecorators\FlatSharpDecorator.cs" />
+    <Compile Include="Refactoring\Tokens\NoteDecorators\NoteDecorator.cs" />
+    <Compile Include="Refactoring\Tokens\NoteDecorators\OctaveDecorator.cs" />
+    <Compile Include="Refactoring\Tokens\INote.cs" />
     <Compile Include="ViewModels\MidiPlayerViewModel.cs" />
     <Compile Include="ViewModels\StaffsViewModel.cs" />
     <Compile Include="Views\MidiPlayerCtrl.xaml.cs">
@@ -248,6 +268,7 @@
     <Content Include="Files\Eenvoudige voorbeeldfiles\Rusten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Standaard_noten.ly" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

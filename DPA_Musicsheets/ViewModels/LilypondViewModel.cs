@@ -1,4 +1,4 @@
-﻿using DPA_Musicsheets.Managers;
+﻿using DPA_Musicsheets.Refactoring;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Win32;
@@ -52,10 +52,13 @@ namespace DPA_Musicsheets.ViewModels
             // And viewmodels don't 
             _mainViewModel = mainViewModel;
             //_musicLoader = musicLoader;
-            Managers.MusicLoader.LilypondViewModel = this;
+            MusicLoader.LilypondViewModel = this;
 
             _text = "Your lilypond text will appear here.";
+
         }
+
+
 
         public void LilypondTextLoaded(string text)
         {
@@ -83,7 +86,8 @@ namespace DPA_Musicsheets.ViewModels
                     {
                         _waitingForRender = false;
                         UndoCommand.RaiseCanExecuteChanged();
-                        Helpers.MusicLoaderHelper.LoadLilypondIntoWpfStaffsAndMidi.LoadLilypondIntoWpfStaffsAndMidiF(LilypondText);
+                        //Helpers.MusicLoaderHelper.LoadLilypondIntoWpfStaffsAndMidi.LoadLilypondIntoWpfStaffsAndMidiF(LilypondText);
+
                         _mainViewModel.CurrentState = "";
                     }
                 }, TaskScheduler.FromCurrentSynchronizationContext()); // Request from main thread.

@@ -1,40 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
+using DPA_Musicsheets.Models;
+using DPA_Musicsheets.Models.Commandos;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using DPA_Musicsheets.Models.MusicNotes;
+using System;
+using DPA_Musicsheets.Refactoring.Tokens;
 
 namespace DPA_Musicsheets.Refactoring.Load
 {
-    class LoadLilypond : IMusicLoader
+    class LoadLilypond : ILoader
     {
-        LinkedList<BaseNote> IMusicLoader.loadMusic(string fileName)
-        {
-            //throw new NotImplementedException();
-            LinkedList<BaseNote> ll = new LinkedList<BaseNote>();
+        private string fileName;
 
+        public LoadLilypond(string fileName)
+        {
+            this.fileName = fileName;
+        }
+        public List<IToken> loadMusic()
+        {
+            throw new NotImplementedException();
+            LinkedList<IMusicToken> ll = new LinkedList<IMusicToken>();
+
+            StringBuilder sb = new StringBuilder();
             foreach (var line in File.ReadAllLines(fileName))
             {
-                /* TODO Werk uit
-                switch (line)
-                {
-                    case "\\relative": token.TokenKind = LilypondTokenKind.Staff; break;
-                    case "\\clef": token.TokenKind = LilypondTokenKind.Clef; break;
-                    case "\\time": token.TokenKind = LilypondTokenKind.Time; break;
-                    case "\\tempo": token.TokenKind = LilypondTokenKind.Tempo; break;
-                    case "\\repeat": token.TokenKind = LilypondTokenKind.Repeat; break;
-                    case "\\alternative": token.TokenKind = LilypondTokenKind.Alternative; break;
-                    case "{": token.TokenKind = LilypondTokenKind.SectionStart; break;
-                    case "}": token.TokenKind = LilypondTokenKind.SectionEnd; break;
-                    case "|": token.TokenKind = LilypondTokenKind.Bar; break;
-                    default: token.TokenKind = LilypondTokenKind.Unknown; break;
-                }
-                */
+                sb.AppendLine(line);
             }
+            string content = sb.ToString();
 
-            return ll;
+            foreach (string s in content.Split(' ').Where(item => item.Length > 0))
+            {
+                switch (s)
+                {
+                    case "\\relative": ll.AddLast(new Relative()); break;
+                    case "\\clef": ll.AddLast(new Clef()); break;
+                    case "\\time": ll.AddLast(new Time()); break;
+                    case "\\tempo": ll.AddLast(new Tempo()); break;
+                    case "\\repeat": ll.AddLast(new Repeat()); break;
+                    case "\\alternative": ll.AddLast(new Alternative()); break;
+                    case "{": ll.AddLast(new SectionStart()); break;
+                    case "}": ll.AddLast(new SectionEnd()); break;
+                    case "|": ll.AddLast(new Bar()); break;
+                    default:
+                        if (new Regex(@"[~]?[a-g][,'eis]*[0-9]+[.]*").IsMatch(s))
+                        {
+                            //ll.AddLast(new BaseNote())
+                        }
+                        break;
+                }
+
+            }
+            //return ll;
         }
     }
 }

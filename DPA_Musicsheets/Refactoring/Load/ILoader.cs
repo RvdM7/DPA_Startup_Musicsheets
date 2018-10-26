@@ -1,4 +1,5 @@
-﻿using DPA_Musicsheets.Models.MusicNotes;
+﻿using DPA_Musicsheets.Models;
+using DPA_Musicsheets.Refactoring.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Load
 {
-    interface IMusicLoader
+    interface ILoader
     {
-        LinkedList<BaseNote> loadMusic(string content);
+        List<IToken> loadMusic();
     }
 }
