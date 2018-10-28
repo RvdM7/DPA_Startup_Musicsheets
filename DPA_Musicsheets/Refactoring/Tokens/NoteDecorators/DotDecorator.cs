@@ -22,6 +22,7 @@ namespace DPA_Musicsheets.Refactoring.Tokens.NoteDecorators
 
         public override int getLength()
         {
+            // TODO process dots
             return base.getLength();
         }
 

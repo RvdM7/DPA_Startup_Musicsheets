@@ -27,7 +27,6 @@ namespace DPA_Musicsheets.Refactoring.Load
             List<IToken> test = new List<IToken>();
             INote addNote = new Note();
 
-            int[] array = new int[3] { 4, 120, 0 };
             int beatNote = 4;
             int bpm = 120;
             int beatsPerBar = 0;
@@ -64,17 +63,12 @@ namespace DPA_Musicsheets.Refactoring.Load
                                     beatsPerBar = (int)(1 / Math.Pow(timeSignatureBytes[1], -2));
                                     mt[1] = beatNote;
                                     mt[2] = beatsPerBar;
-                                    //mt.beatNote = beatNote;
-                                    //mt.beatsPerBar = beatsPerBar;
-                                    //lilypondContent.AppendLine($"\\time {beatNote}/{beatsPerBar}");
                                     break;
                                 case MetaType.Tempo:
                                     byte[] tempoBytes = metaMessage.GetBytes();
                                     int tempo = (tempoBytes[0] & 0xff) << 16 | (tempoBytes[1] & 0xff) << 8 | (tempoBytes[2] & 0xff);
                                     bpm = 60000000 / tempo;
                                     mt[0] = bpm;
-                                    //mt.bpm = bpm;
-                                    //lilypondContent.AppendLine($"\\tempo 4={bpm}");
                                     break;
                                 case MetaType.EndOfTrack:
 
@@ -84,13 +78,9 @@ namespace DPA_Musicsheets.Refactoring.Load
                                         double percentageOfBar;
                                         addNote = mh.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar, addNote);
 
-                                        //lilypondContent.Append(MidiToLilyHelper.GetLilypondNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar));
-                                        //lilypondContent.Append(" ");
-
                                         percentageOfBarReached += percentageOfBar;
                                         if (percentageOfBarReached >= 1)
                                         {
-                                            //lilypondContent.AppendLine("|");
                                             percentageOfBar = percentageOfBar - 1;
                                         }
                                     }
@@ -109,7 +99,6 @@ namespace DPA_Musicsheets.Refactoring.Load
                                     // Append the new note.
                                     addNote = new Note();
                                     addNote = mh.setNoteHeight(previousMidiKey, channelMessage.Data1, addNote);
-                                    //lilypondContent.Append(MidiToLilyHelper.GetLilyNoteName(previousMidiKey, channelMessage.Data1));
 
                                     previousMidiKey = channelMessage.Data1;
                                     startedNoteIsClosed = false;
@@ -119,15 +108,13 @@ namespace DPA_Musicsheets.Refactoring.Load
                                     // Finish the previous note with the length.
                                     double percentageOfBar;
                                     addNote = mh.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar, addNote);
-                                    //lilypondContent.Append(MidiToLilyHelper.GetLilypondNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar));
                                     previousNoteAbsoluteTicks = midiEvent.AbsoluteTicks;
-                                    //lilypondContent.Append(" ");
 
                                     percentageOfBarReached += percentageOfBar;
                                     if (percentageOfBarReached >= 1)
                                     {
-                                        //lilypondContent.AppendLine("|");
                                         percentageOfBarReached -= 1;
+                                        test.Add(new BarToken());
                                     }
                                     startedNoteIsClosed = true;
 
@@ -141,7 +128,6 @@ namespace DPA_Musicsheets.Refactoring.Load
                                 }
                                 else
                                 {
-                                    test.Add(new Note());
                                     // add rust
                                     //lilypondContent.Append("r");
                                 }

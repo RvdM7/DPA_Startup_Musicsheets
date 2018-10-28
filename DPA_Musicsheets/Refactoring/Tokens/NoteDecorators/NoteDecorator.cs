@@ -18,25 +18,21 @@ namespace DPA_Musicsheets.Refactoring.Tokens.NoteDecorators
         public virtual char getHeight()
         {
             return token.getHeight();
-            //throw new NotImplementedException();
         }
 
         public virtual int getLength()
         {
             return token.getLength();
-            //throw new NotImplementedException();
         }
 
         public virtual void setHeight(char height)
         {
             token.setHeight(height);
-            //throw new NotImplementedException();
         }
 
         public virtual void setLength(int length)
         {
             token.setLength(length);
-            //throw new NotImplementedException();
         }
     }
 }

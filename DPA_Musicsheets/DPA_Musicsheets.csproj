@@ -140,7 +140,7 @@
     <Compile Include="Refactoring\Load\LoadLocator.cs" />
     <Compile Include="Refactoring\Load\LoadMidi.cs" />
     <Compile Include="Refactoring\MusicLoader.cs" />
-    <Compile Include="Refactoring\ShowWPFStaffs.cs" />
+    <Compile Include="Refactoring\Tokens\BarToken.cs" />
     <Compile Include="Refactoring\Tokens\IToken.cs" />
     <Compile Include="Refactoring\Tokens\MetaToken.cs" />
     <Compile Include="Refactoring\Tokens\Note.cs" />

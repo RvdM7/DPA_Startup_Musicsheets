@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using DPA_Musicsheets.Refactoring.Tokens;
 using PSAMControlLibrary;
+using DPA_Musicsheets.Refactoring.Tokens;
 
 namespace DPA_Musicsheets.Refactoring
 {
     class ConvertToPSAM
     {
-        public void getStaffsFromTokens(List<IToken> test)
+
+        public List<MusicalSymbol> getStaffsFromTokens(List<IToken> test)
         {
             List<MusicalSymbol> symbols = new List<MusicalSymbol>();
 
@@ -21,20 +22,28 @@ namespace DPA_Musicsheets.Refactoring
             bool inRepeat = false;
             bool inAlternative = false;
             int alternativeRepeatNumber = 0;
+            List<Char> notesorder = new List<Char> { 'c', 'd', 'e', 'f', 'g', 'a', 'b' };
 
+            symbols.Add(new PSAMControlLibrary.Clef(ClefType.GClef, 2));
             for (int i = 0; i < test.Count; i++)
             {
-                if (test[i] is INote)
+                IToken token = test[i];
+                if (token is INote)
                 {
                     INote note = (INote)test[i];
-                    int noteLength;//= Int32.Parse(Regex.Match(note.getLength(), @"\d+").Value);
+                    var PSAMNote = new PSAMControlLibrary.Note(note.getHeight().ToString(), 0, previousOctave, (MusicalSymbolDuration)note.getLength(), NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+                    //PSAMNote.NumberOfDots += dots;
+                    symbols.Add(PSAMNote);
                 }
-                else if (test[i] is MetaToken)
+                else if (token is BarToken)
                 {
-
+                    symbols.Add(new PSAMControlLibrary.Barline());
+                }
+                else if (token is MetaToken)
+                {
                 }
             }
-
+            return symbols;
         }
     }
 }

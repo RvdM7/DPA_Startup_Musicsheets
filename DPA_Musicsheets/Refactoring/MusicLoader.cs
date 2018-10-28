@@ -20,14 +20,14 @@ namespace DPA_Musicsheets.Refactoring
             LoadLocator ll = new LoadLocator();
             ILoader fl = ll.LocateLoader(fileName);
             music = fl.loadMusic();
-
-            //LinkedList<IMusicToken> lList = ml.loadMusic(fileName);
             showMusic();
         }
 
         public void showMusic()
         {
-            //ShowWPFStaffs ss = new ShowWPFStaffs();
+            ConvertToPSAM ctp = new ConvertToPSAM();
+            ctp.getStaffsFromTokens(music);
+            StaffsViewModel.SetStaffs(ctp.getStaffsFromTokens(music));
 
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < music.Count; i++)
