@@ -52,13 +52,16 @@ namespace DPA_Musicsheets.ViewModels
             // And viewmodels don't 
             _mainViewModel = mainViewModel;
             //_musicLoader = musicLoader;
-            MusicLoader.LilypondViewModel = this;
 
             _text = "Your lilypond text will appear here.";
-
+            musicLoader.musicLoaded += musicLoaded;
         }
 
-
+        private void musicLoaded(object sender, MusicLoadedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            //e.converter.convert(e.symbolList);
+        }
 
         public void LilypondTextLoaded(string text)
         {

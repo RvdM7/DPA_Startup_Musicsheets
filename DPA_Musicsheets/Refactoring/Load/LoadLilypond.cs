@@ -6,7 +6,7 @@ using DPA_Musicsheets.Models.Commandos;
 using System.Linq;
 using System.Text;
 using System;
-using DPA_Musicsheets.Refactoring.Tokens;
+using DPA_Musicsheets.Refactoring.Domain;
 
 namespace DPA_Musicsheets.Refactoring.Load
 {
@@ -18,7 +18,7 @@ namespace DPA_Musicsheets.Refactoring.Load
         {
             this.fileName = fileName;
         }
-        public List<IToken> loadMusic()
+        public List<ISymbol> loadMusic()
         {
             throw new NotImplementedException();
             LinkedList<IMusicToken> ll = new LinkedList<IMusicToken>();
@@ -42,7 +42,7 @@ namespace DPA_Musicsheets.Refactoring.Load
                     case "\\alternative": ll.AddLast(new Alternative()); break;
                     case "{": ll.AddLast(new SectionStart()); break;
                     case "}": ll.AddLast(new SectionEnd()); break;
-                    case "|": ll.AddLast(new Bar()); break;
+                    //case "|": ll.AddLast(new Domain.Bar()); break;
                     default:
                         if (new Regex(@"[~]?[a-g][,'eis]*[0-9]+[.]*").IsMatch(s))
                         {

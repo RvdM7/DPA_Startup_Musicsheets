@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DPA_Musicsheets.Refactoring.Domain;
 using PSAMControlLibrary;
-using DPA_Musicsheets.Refactoring.Tokens;
 
 namespace DPA_Musicsheets.Refactoring
 {
-    class ConvertToPSAM
+    class ConvertToPSAM : IConverter<ISymbol>
     {
-
-        public List<MusicalSymbol> getStaffsFromTokens(List<IToken> test)
+        object IConverter<ISymbol>.convert(List<ISymbol> test)
         {
             List<MusicalSymbol> symbols = new List<MusicalSymbol>();
 
@@ -27,20 +26,21 @@ namespace DPA_Musicsheets.Refactoring
             symbols.Add(new PSAMControlLibrary.Clef(ClefType.GClef, 2));
             for (int i = 0; i < test.Count; i++)
             {
-                IToken token = test[i];
-                if (token is INote)
+                ISymbol symbol = test[i];
+
+                if (symbol is Domain.Note)
                 {
-                    INote note = (INote)test[i];
-                    var PSAMNote = new PSAMControlLibrary.Note(note.getHeight().ToString(), 0, previousOctave, (MusicalSymbolDuration)note.getLength(), NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
-                    //PSAMNote.NumberOfDots += dots;
+                    Domain.Note note = (Domain.Note)test[i];
+                    var PSAMNote = new PSAMControlLibrary.Note(note.height.ToString(), 0, previousOctave, (MusicalSymbolDuration)note.duration, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+                    PSAMNote.NumberOfDots += note.dots.dots;
                     symbols.Add(PSAMNote);
                 }
-                else if (token is BarToken)
+                else if (symbol is Meta)
                 {
-                    symbols.Add(new PSAMControlLibrary.Barline());
                 }
-                else if (token is MetaToken)
+                else if (symbol is Bar)
                 {
+                    symbols.Add(new Barline() { AlternateRepeatGroup = 0 });
                 }
             }
             return symbols;

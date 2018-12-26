@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DPA_Musicsheets.Refactoring.Domain;
 using DPA_Musicsheets.Refactoring.Load.LoadHelper;
-using DPA_Musicsheets.Refactoring.Tokens;
 using Sanford.Multimedia.Midi;
 
 namespace DPA_Musicsheets.Refactoring.Load
@@ -12,7 +12,7 @@ namespace DPA_Musicsheets.Refactoring.Load
     class LoadMidi : ILoader
     {
         private string fileName;
-        private MidiHelper mh = new MidiHelper();
+        private MidiHelper midiHelper = new MidiHelper();
 
 
         public LoadMidi(string fileName)
@@ -20,25 +20,21 @@ namespace DPA_Musicsheets.Refactoring.Load
             this.fileName = fileName;
         }
 
-        public List<IToken> loadMusic()
+        public List<ISymbol> loadMusic()
         {
             //throw new NotImplementedException();
-
-            List<IToken> test = new List<IToken>();
-            INote addNote = new Note();
-
-            int beatNote = 4;
-            int bpm = 120;
-            int beatsPerBar = 0;
-            MetaToken mt = new MetaToken(bpm, beatNote, beatsPerBar);
-
             Sequence MidiSequence = new Sequence();
             MidiSequence.Load(fileName);
 
+            Meta meta = new Meta(120, 4, 0);
+            Note addNote = new Note();
+
+            List<ISymbol> test = new List<ISymbol>();
+
             int previousMidiKey = 60; // Central C;
-            int division = MidiSequence.Division;
             int previousNoteAbsoluteTicks = 0;
             double percentageOfBarReached = 0;
+            int division = MidiSequence.Division;
             bool startedNoteIsClosed = true;
 
             for (int i = 0; i < MidiSequence.Count(); i++)
@@ -59,16 +55,13 @@ namespace DPA_Musicsheets.Refactoring.Load
                             {
                                 case MetaType.TimeSignature:
                                     byte[] timeSignatureBytes = metaMessage.GetBytes();
-                                    beatNote = timeSignatureBytes[0];
-                                    beatsPerBar = (int)(1 / Math.Pow(timeSignatureBytes[1], -2));
-                                    mt[1] = beatNote;
-                                    mt[2] = beatsPerBar;
+                                    meta.beatNote = timeSignatureBytes[0];
+                                    meta.beatsPerBar = (int)(1 / Math.Pow(timeSignatureBytes[1], -2));
                                     break;
                                 case MetaType.Tempo:
                                     byte[] tempoBytes = metaMessage.GetBytes();
                                     int tempo = (tempoBytes[0] & 0xff) << 16 | (tempoBytes[1] & 0xff) << 8 | (tempoBytes[2] & 0xff);
-                                    bpm = 60000000 / tempo;
-                                    mt[0] = bpm;
+                                    meta.bpm = 60000000 / tempo;
                                     break;
                                 case MetaType.EndOfTrack:
 
@@ -76,16 +69,15 @@ namespace DPA_Musicsheets.Refactoring.Load
                                     {
                                         // Finish the last notelength.
                                         double percentageOfBar;
-                                        addNote = mh.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar, addNote);
+                                        addNote = midiHelper.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, meta.beatNote, meta.beatsPerBar, out percentageOfBar, addNote);
 
                                         percentageOfBarReached += percentageOfBar;
                                         if (percentageOfBarReached >= 1)
                                         {
                                             percentageOfBar = percentageOfBar - 1;
+                                            test.Add(new Bar());
                                         }
                                     }
-                                    test.Add(addNote);
-                                    addNote = null;
                                     break;
                                 default: break;
                             }
@@ -98,7 +90,7 @@ namespace DPA_Musicsheets.Refactoring.Load
                                 {
                                     // Append the new note.
                                     addNote = new Note();
-                                    addNote = mh.setNoteHeight(previousMidiKey, channelMessage.Data1, addNote);
+                                    addNote = midiHelper.setNoteHeight(previousMidiKey, channelMessage.Data1, addNote);
 
                                     previousMidiKey = channelMessage.Data1;
                                     startedNoteIsClosed = false;
@@ -107,22 +99,18 @@ namespace DPA_Musicsheets.Refactoring.Load
                                 {
                                     // Finish the previous note with the length.
                                     double percentageOfBar;
-                                    addNote = mh.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, beatNote, beatsPerBar, out percentageOfBar, addNote);
+                                    addNote = midiHelper.setNoteLength(previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, division, meta.beatNote, meta.beatsPerBar, out percentageOfBar, addNote);
                                     previousNoteAbsoluteTicks = midiEvent.AbsoluteTicks;
 
                                     percentageOfBarReached += percentageOfBar;
                                     if (percentageOfBarReached >= 1)
                                     {
                                         percentageOfBarReached -= 1;
-                                        test.Add(new BarToken());
+                                        test.Add(new Bar());
                                     }
                                     startedNoteIsClosed = true;
 
-                                    if (mt.changed)
-                                    {
-                                        test.Add(mt);
-                                        mt.updated();
-                                    }
+                                    test.Add(meta);
                                     test.Add(addNote);
                                     addNote = new Note();
                                 }
@@ -133,6 +121,7 @@ namespace DPA_Musicsheets.Refactoring.Load
                                 }
                             }
                             break;
+                        default: break;
                     }
                 }
             }

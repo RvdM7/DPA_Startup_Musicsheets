@@ -27,8 +27,20 @@ namespace DPA_Musicsheets.ViewModels
         public StaffsViewModel(MusicLoader musicLoader)
         {
             // TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer?
-            MusicLoader.StaffsViewModel = this;
             Staffs = new ObservableCollection<MusicalSymbol>();
+            musicLoader.musicLoaded += MusicLoader_musicLoaded;
+        }
+
+        private void MusicLoader_musicLoaded(object sender, MusicLoadedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            IList<MusicalSymbol> symbols = (List<MusicalSymbol>)e.converter.convert(e.symbolList);
+            Staffs.Clear();
+            foreach (var symbol in symbols)
+            {
+                Staffs.Add(symbol);
+            }
+
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace DPA_Musicsheets.Refactoring.Load
             else if (Path.GetExtension(fileName).EndsWith(".ly"))
             {
                 //handle lilypond file
-                //throw new NotImplementedException();
+                throw new NotImplementedException();
                 return new LoadLilypond(fileName);
             }
             else

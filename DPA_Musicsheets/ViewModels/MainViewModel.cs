@@ -31,9 +31,6 @@ namespace DPA_Musicsheets.ViewModels
             }
         }
 
-        public delegate void openFile(string fileName);
-        public event openFile of;
-
         /// <summary>
         /// The current state can be used to display some text.
         /// "Rendering..." is a text that will be displayed for example.
@@ -45,14 +42,13 @@ namespace DPA_Musicsheets.ViewModels
             set { _currentState = value; RaisePropertyChanged(() => CurrentState); }
         }
 
-        private MusicLoader _musicLoader = new MusicLoader();
+        private MusicLoader _musicLoader;
 
-        public MainViewModel()
+        public MainViewModel(MusicLoader musicLoader)
         {
             // TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer?
-            //_musicLoader = musicLoader;
+            _musicLoader = musicLoader;
             FileName = @"Files/Alle-eendjes-zwemmen-in-het-water.mid";
-            this.of += new openFile(_musicLoader.loadMusic);
         }
 
         public ICommand OpenFileCommand => new RelayCommand(() =>
@@ -66,9 +62,6 @@ namespace DPA_Musicsheets.ViewModels
 
         public ICommand LoadCommand => new RelayCommand(() =>
         {
-            // TODO event stuff?
-            //of(FileName);
-            //Helpers.MusicLoaderHelper.OpenFile.OpenRequestedFile(FileName);
             _musicLoader.loadMusic(FileName);
         });
 

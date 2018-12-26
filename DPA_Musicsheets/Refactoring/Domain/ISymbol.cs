@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPA_Musicsheets.Refactoring.Tokens
+namespace DPA_Musicsheets.Refactoring.Domain
 {
-    public interface IToken
+    public interface ISymbol
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿using DPA_Musicsheets.Refactoring.Load;
-using DPA_Musicsheets.Refactoring.Tokens;
-using DPA_Musicsheets.ViewModels; // TODO remove
+using DPA_Musicsheets.Refactoring.Domain;
+using DPA_Musicsheets.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,57 +9,41 @@ namespace DPA_Musicsheets.Refactoring
 {
     public class MusicLoader
     {
-        List<IToken> music;
-        public static MainViewModel MainViewModel { get; set; }
-        public static LilypondViewModel LilypondViewModel { get; set; }
-        public static MidiPlayerViewModel MidiPlayerViewModel { get; set; }
-        public static StaffsViewModel StaffsViewModel { get; set; }
+        public event EventHandler<MusicLoadedEventArgs> musicLoaded;
 
         public void loadMusic(String fileName)
         {
-            LoadLocator ll = new LoadLocator();
-            ILoader fl = ll.LocateLoader(fileName);
-            music = fl.loadMusic();
-            showMusic();
+            ILoader loader = new LoadLocator().LocateLoader(fileName);
+            List<ISymbol> music = loader.loadMusic();
+
+            //System.Diagnostics.Debug.WriteLine(music[0]);
+            //System.Diagnostics.Debug.WriteLine(music[2]);
+
+            MusicLoadedEventArgs args = new MusicLoadedEventArgs();
+            args.converter = new ConvertToPSAM();
+            args.symbolList = music;
+            onMusicLoaded(args);
         }
 
-        public void showMusic()
+        protected virtual void onMusicLoaded(MusicLoadedEventArgs e)
         {
-            ConvertToPSAM ctp = new ConvertToPSAM();
-            ctp.getStaffsFromTokens(music);
-            StaffsViewModel.SetStaffs(ctp.getStaffsFromTokens(music));
-
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < music.Count; i++)
-            {
-                try
-                {
-                    if (music[i] is INote)
-                    {
-                        INote note = (INote)music[i];
-                        sb.Append(note.getHeight().ToString());
-                        sb.AppendLine(note.getLength().ToString());
-                        sb.AppendLine(note.ToString());
-                    }
-                    else if (music[i] is MetaToken)
-                    {
-                        MetaToken mt = (MetaToken)music[i];
-                        sb.Append("BPM: ");
-                        sb.AppendLine(mt.bpm.ToString());
-                        sb.Append("beatNote: ");
-                        sb.AppendLine(mt.beatNote.ToString());
-                        sb.Append("beatsPerBar: ");
-                        sb.AppendLine(mt.beatsPerBar.ToString());
-                    }
-
-                    sb.AppendLine();
-                }
-                catch (Exception e)
-                {
-                    continue;
-                }
-            }
-            LilypondViewModel.LilypondTextLoaded(sb.ToString());
+            musicLoaded?.Invoke(this, e);
         }
+
+        /*
+        private void showMusic()
+        {
+            ConvertToPSAM convertToPSAM = new ConvertToPSAM();
+            staffsViewModel.SetStaffs(convertToPSAM.getStaffsFromTokens(music));
+
+            lilypondViewModel.LilypondTextLoaded("lil tekst");
+
+        }*/
+    }
+
+    public class MusicLoadedEventArgs : EventArgs
+    {
+        public List<ISymbol> symbolList { get; set; }
+        public IConverter<ISymbol> converter { get; set; }
     }
 }
