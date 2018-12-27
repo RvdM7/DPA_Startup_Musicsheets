@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
+using DPA_Musicsheets.Refactoring.Domain.Additive;
 
 namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
 {
@@ -83,73 +84,84 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
             return note;
         }
 
-        public Note setNoteHeight(int previousMidiKey, int midiKey, Note note)
+        public Note getNoteWithHeight(int previousMidiKey, int midiKey)
         {
+            Note note = null;
             int octave = (midiKey / 12) - 1;
             switch (midiKey % 12)
             {
                 case 0:
-                    note.height = NoteHeight.c;
+                    note = new Note(NoteHeight.c);
+                    //note.height = NoteHeight.c;
                     break;
                 case 1:
-                    note.height = NoteHeight.c;
+                    note = new Note(NoteHeight.c);
+                    //note.height = NoteHeight.c;
                     //note = new FlatSharpDecorator(note);
                     break;
                 case 2:
-                    note.height = NoteHeight.d;
+                    note = new Note(NoteHeight.d);
+                    //note.height = NoteHeight.d;
                     break;
                 case 3:
-                    note.height = NoteHeight.d;
+                    note = new Note(NoteHeight.d);
+                    //note.height = NoteHeight.d;
                     //note = new FlatSharpDecorator(note);
                     break;
                 case 4:
-                    note.height = NoteHeight.e;
+                    note = new Note(NoteHeight.e);
+                    //note.height = NoteHeight.e;
                     break;
                 case 5:
-                    note.height = NoteHeight.f;
+                    note = new Note(NoteHeight.f);
+                    //note.height = NoteHeight.f;
                     break;
                 case 6:
-                    note.height = NoteHeight.f;
+                    note = new Note(NoteHeight.f);
+                    //note.height = NoteHeight.f;
                     //note = new FlatSharpDecorator(note);
                     break;
                 case 7:
-                    note.height = NoteHeight.g;
+                    note = new Note(NoteHeight.g);
+                    //note.height = NoteHeight.g;
                     break;
                 case 8:
-                    note.height = NoteHeight.g;
+                    note = new Note(NoteHeight.g);
+                    //note.height = NoteHeight.g;
                     //note = new FlatSharpDecorator(note);
                     break;
                 case 9:
-                    note.height = NoteHeight.a;
+                    note = new Note(NoteHeight.a);
+                    //note.height = NoteHeight.a;
                     break;
                 case 10:
-                    note.height = NoteHeight.a;
+                    note = new Note(NoteHeight.a);
+                    //note.height = NoteHeight.a;
                     //note = new FlatSharpDecorator(note);
                     break;
                 case 11:
-                    note.height = NoteHeight.b;
+                    note = new Note(NoteHeight.b);
+                    //note.height = NoteHeight.b;
                     break;
+            }
+            if (note == null)
+            {
+                throw new NotSupportedException();
             }
 
             int distance = midiKey - previousMidiKey;
             int test = 0;
             while (distance < -6)
             {
-                test++;
-
+                test--;
                 distance += 8;
             }
-            //note = test > 0 ? new OctaveDecorator(note, false, test) : note;
-            test = 0;
             while (distance > 6)
             {
                 test++;
-                //note = new OctaveDecorator(note);
-                //note.apostrof += 1;
-                //name += "'";
                 distance -= 8;
             }
-            //note = test > 0 ? new OctaveDecorator(note, true, test) : note;
+            note.octave = test;
 
             return note;
         }

@@ -135,6 +135,7 @@
     <Compile Include="Models\IMusicToken.cs" />
     <Compile Include="Refactoring\Domain\Additive\Dots.cs" />
     <Compile Include="Refactoring\Domain\Additive\Flat.cs" />
+    <Compile Include="Refactoring\Domain\Additive\IOctaveModifier.cs" />
     <Compile Include="Refactoring\Domain\Additive\Sharp.cs" />
     <Compile Include="Refactoring\Domain\Bar.cs" />
     <Compile Include="Refactoring\Domain\ISymbol.cs" />

@@ -8,5 +8,9 @@ namespace DPA_Musicsheets.Refactoring.Domain
 {
     class Bar : ISymbol
     {
+        public override string ToString()
+        {
+            return "|";
+        }
     }
 }

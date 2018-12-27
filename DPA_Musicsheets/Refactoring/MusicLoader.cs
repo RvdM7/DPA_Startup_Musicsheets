@@ -16,8 +16,10 @@ namespace DPA_Musicsheets.Refactoring
             ILoader loader = new LoadLocator().LocateLoader(fileName);
             List<ISymbol> music = loader.loadMusic();
 
-            //System.Diagnostics.Debug.WriteLine(music[0]);
-            //System.Diagnostics.Debug.WriteLine(music[2]);
+            foreach (ISymbol symbol in music)
+            {
+                System.Diagnostics.Debug.Write(symbol + " ");
+            }
 
             MusicLoadedEventArgs args = new MusicLoadedEventArgs();
             args.converter = new ConvertToPSAM();
@@ -29,16 +31,6 @@ namespace DPA_Musicsheets.Refactoring
         {
             musicLoaded?.Invoke(this, e);
         }
-
-        /*
-        private void showMusic()
-        {
-            ConvertToPSAM convertToPSAM = new ConvertToPSAM();
-            staffsViewModel.SetStaffs(convertToPSAM.getStaffsFromTokens(music));
-
-            lilypondViewModel.LilypondTextLoaded("lil tekst");
-
-        }*/
     }
 
     public class MusicLoadedEventArgs : EventArgs
