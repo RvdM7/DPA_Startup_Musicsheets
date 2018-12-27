@@ -30,12 +30,7 @@ namespace DPA_Musicsheets.Refactoring
 
                 if (symbol is Domain.Note)
                 {
-                    Domain.Note currentToken = (Domain.Note)test[i];
-                    /*
-                    var PSAMNote = new PSAMControlLibrary.Note(note.height.ToString().ToUpper(), 0, previousOctave + note.octave, (MusicalSymbolDuration)note.duration, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
-                    PSAMNote.NumberOfDots += note.dots.dots;
-                    symbols.Add(PSAMNote);
-                    */
+                    Domain.Note note = (Domain.Note)test[i];
                     // Tied
                     // TODO: A tie, like a dot and cross or mole are decorations on notes. Is the DECORATOR pattern of use here?
                     /*NoteTieType tie = NoteTieType.None;
@@ -47,14 +42,12 @@ namespace DPA_Musicsheets.Refactoring
                         currentToken.Value = currentToken.Value.Substring(1);
                     }*/
                     // Length
-                    //int noteLength = Int32.Parse(Regex.Match(currentToken.Value, @"\d+").Value);
+                    int noteLength = note.duration;
                     // Crosses and Moles
-                    /*
                     int alter = 0;
-                    alter += Regex.Matches(currentToken.Value, "is").Count;
-                    alter -= Regex.Matches(currentToken.Value, "es|as").Count;*/
+                    alter = note.octaveModifier != null ? note.octaveModifier.getModifier() : alter;
                     // Octaves
-                    int distanceWithPreviousNote = notesorder.IndexOf((char)currentToken.height) - notesorder.IndexOf(previousNote);
+                    int distanceWithPreviousNote = notesorder.IndexOf((char)note.height) - notesorder.IndexOf(previousNote);
                     if (distanceWithPreviousNote > 3) // Shorter path possible the other way around
                     {
                         distanceWithPreviousNote -= 7; // The number of notes in an octave
@@ -74,19 +67,19 @@ namespace DPA_Musicsheets.Refactoring
                     }
 
                     // Force up or down.
-                    previousOctave += currentToken.octave;//currentToken.Value.Count(c => c == '\'');
-                    //previousOctave -= //currentToken.Value.Count(c => c == ',');
+                    previousOctave += note.octave;
 
-                    previousNote = (char)currentToken.height;
+                    previousNote = (char)note.height;
 
-                    char height = (char)currentToken.height;
-                    var note = new PSAMControlLibrary.Note(height.ToString().ToUpper(), 0, previousOctave, (MusicalSymbolDuration)currentToken.duration, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
-                    note.NumberOfDots += currentToken.dots.dots;
+                    var PSAMNote = new PSAMControlLibrary.Note(note.height.ToString().ToUpper(), alter, previousOctave, (MusicalSymbolDuration)noteLength, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+                    PSAMNote.NumberOfDots += note.dots != null ? note.dots.dots : 0;
 
-                    symbols.Add(note);
+                    symbols.Add(PSAMNote);
                 }
                 else if (symbol is Meta)
                 {
+                    var metaSymbol = symbol as Meta;
+                    symbols.Add(new TimeSignature(TimeSignatureType.Numbers, Convert.ToUInt32(metaSymbol.beatNote), Convert.ToUInt32(metaSymbol.beatsPerBar)));
                 }
                 else if (symbol is Bar)
                 {

@@ -10,6 +10,6 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
 {
     interface IMidiMessageHandler
     {
-        void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref Note addNote, ref List<ISymbol> symbols);
+        void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref ISymbol addNote, ref List<ISymbol> symbols);
     }
 }

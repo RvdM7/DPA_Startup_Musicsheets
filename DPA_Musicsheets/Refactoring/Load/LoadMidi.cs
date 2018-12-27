@@ -11,7 +11,7 @@ namespace DPA_Musicsheets.Refactoring.Load
 {
     class LoadMidi : ILoader
     {
-        private string fileName;
+        private readonly string fileName;
         private Dictionary<MessageType, IMidiMessageHandler> strategies = new Dictionary<MessageType, IMidiMessageHandler>();
         public static MidiHelper midiHelper = new MidiHelper();
 
@@ -52,15 +52,13 @@ namespace DPA_Musicsheets.Refactoring.Load
             LoadVars vars = new LoadVars(new Meta(), fileName);
             List<ISymbol> symbols = new List<ISymbol>();
 
-            Note addNote = null;
-
+            ISymbol addNote = null;
             for (int i = 0; i < vars.MidiSequence.Count(); i++)
             {
                 Track track = vars.MidiSequence[i];
 
                 foreach (var midiEvent in track.Iterator())
                 {
-                    //IMidiMessage midiMessage = midiEvent.MidiMessage;
                     // TODO : Split this switch statements and create separate logic.
                     // We want to split this so that we can expand our functionality later with new keywords for example.
                     // Hint: Command pattern? Strategies? Factory method?

@@ -142,7 +142,6 @@
     <Compile Include="Refactoring\Domain\Meta.cs" />
     <Compile Include="Refactoring\Domain\NoteHeight.cs" />
     <Compile Include="Refactoring\Domain\Rest.cs" />
-    <Compile Include="Refactoring\Domain\SymbolList.cs" />
     <Compile Include="Refactoring\Domain\Note.cs" />
     <Compile Include="Refactoring\ConvertToPSAM.cs" />
     <Compile Include="Refactoring\ConvertToPSAMHelper.cs" />

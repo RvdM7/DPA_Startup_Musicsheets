@@ -21,9 +21,11 @@ namespace DPA_Musicsheets.Refactoring
                 System.Diagnostics.Debug.Write(symbol + " ");
             }
 
-            MusicLoadedEventArgs args = new MusicLoadedEventArgs();
-            args.converter = new ConvertToPSAM();
-            args.symbolList = music;
+            MusicLoadedEventArgs args = new MusicLoadedEventArgs
+            {
+                converter = new ConvertToPSAM(),
+                symbolList = music
+            };
             onMusicLoaded(args);
         }
 

@@ -8,6 +8,11 @@ namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
     class Dots
     {
-        public int dots = 0;
+        public readonly int dots = 0;
+
+        public Dots(int dots)
+        {
+            this.dots = dots;
+        }
     }
 }

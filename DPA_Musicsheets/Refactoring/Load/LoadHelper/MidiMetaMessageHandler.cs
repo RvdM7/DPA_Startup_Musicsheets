@@ -10,7 +10,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
 {
     class MidiMetaMessageHandler : IMidiMessageHandler
     {
-        public void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref Note addNote, ref List<ISymbol> symbols)
+        public void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref ISymbol addNote, ref List<ISymbol> symbols)
         {
             var metaMessage = midiEvent.MidiMessage as MetaMessage;
 

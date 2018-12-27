@@ -8,11 +8,11 @@ namespace DPA_Musicsheets.Refactoring.Domain
 {
     class Rest : ISymbol
     {
-        public int duration { get; set; }
+        public int duration;
 
-        public Rest(int duration)
+        public override string ToString()
         {
-            this.duration = duration;
+            return $"r{duration}";
         }
     }
 }

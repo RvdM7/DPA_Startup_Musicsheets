@@ -12,7 +12,7 @@ namespace DPA_Musicsheets.Refactoring.Load
 {
     class LoadLilypond : ILoader
     {
-        private string fileName;
+        private readonly string fileName;
 
         public LoadLilypond(string fileName)
         {

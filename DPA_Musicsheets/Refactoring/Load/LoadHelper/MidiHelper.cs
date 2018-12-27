@@ -13,7 +13,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
     /// </summary>
     class MidiHelper
     {
-        public Note setNoteLength(int absoluteTicks, int nextNoteAbsoluteTicks, int division, int beatNote, int beatsPerBar, out double percentageOfBar, Note note)
+        public ISymbol setNoteLength(int absoluteTicks, int nextNoteAbsoluteTicks, int division, int beatNote, int beatsPerBar, out double percentageOfBar, ISymbol symbol)
         {
             int duration = 0;
             int dots = 0;
@@ -23,7 +23,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
             if (deltaTicks <= 0)
             {
                 percentageOfBar = 0;
-                return note;
+                return symbol;
             }
 
             double percentageOfBeatNote = deltaTicks / division;
@@ -79,9 +79,19 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
                     break;
                 }
             }
-            note.dots.dots = dots;
-            note.duration = duration;
-            return note;
+            if (symbol is Note)
+            {
+                var note = symbol as Note;
+                note.dots = dots > 0 ? new Dots(dots) : note.dots;
+                note.duration = duration;
+            }
+            else if (symbol is Rest)
+            {
+                var rest = symbol as Rest;
+                rest.duration = duration;
+            }
+
+            return symbol;
         }
 
         public Note getNoteWithHeight(int previousMidiKey, int midiKey)
@@ -92,56 +102,44 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
             {
                 case 0:
                     note = new Note(NoteHeight.c);
-                    //note.height = NoteHeight.c;
                     break;
                 case 1:
                     note = new Note(NoteHeight.c);
-                    //note.height = NoteHeight.c;
-                    //note = new FlatSharpDecorator(note);
+                    note.octaveModifier = new Flat();
                     break;
                 case 2:
                     note = new Note(NoteHeight.d);
-                    //note.height = NoteHeight.d;
                     break;
                 case 3:
                     note = new Note(NoteHeight.d);
-                    //note.height = NoteHeight.d;
-                    //note = new FlatSharpDecorator(note);
+                    note.octaveModifier = new Flat();
                     break;
                 case 4:
                     note = new Note(NoteHeight.e);
-                    //note.height = NoteHeight.e;
                     break;
                 case 5:
                     note = new Note(NoteHeight.f);
-                    //note.height = NoteHeight.f;
                     break;
                 case 6:
                     note = new Note(NoteHeight.f);
-                    //note.height = NoteHeight.f;
-                    //note = new FlatSharpDecorator(note);
+                    note.octaveModifier = new Flat();
                     break;
                 case 7:
                     note = new Note(NoteHeight.g);
-                    //note.height = NoteHeight.g;
                     break;
                 case 8:
                     note = new Note(NoteHeight.g);
-                    //note.height = NoteHeight.g;
-                    //note = new FlatSharpDecorator(note);
+                    note.octaveModifier = new Flat();
                     break;
                 case 9:
                     note = new Note(NoteHeight.a);
-                    //note.height = NoteHeight.a;
                     break;
                 case 10:
                     note = new Note(NoteHeight.a);
-                    //note.height = NoteHeight.a;
-                    //note = new FlatSharpDecorator(note);
+                    note.octaveModifier = new Flat();
                     break;
                 case 11:
                     note = new Note(NoteHeight.b);
-                    //note.height = NoteHeight.b;
                     break;
             }
             if (note == null)

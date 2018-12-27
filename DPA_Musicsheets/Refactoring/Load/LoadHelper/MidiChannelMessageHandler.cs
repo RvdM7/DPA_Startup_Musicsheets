@@ -10,7 +10,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
 {
     class MidiChannelMessageHandler : IMidiMessageHandler
     {
-        public void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref Note addNote, ref List<ISymbol> symbols)
+        public void handleMessage(MidiEvent midiEvent, ref LoadMidi.LoadVars vars, ref ISymbol addNote, ref List<ISymbol> symbols)
         {
             var channelMessage = midiEvent.MidiMessage as ChannelMessage;
             if (channelMessage.Command == ChannelCommand.NoteOn)
@@ -26,8 +26,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
                 else if (!vars.startedNoteIsClosed)
                 {
                     // Finish the previous note with the length.
-                    double percentageOfBar;
-                    addNote = LoadMidi.midiHelper.setNoteLength(vars.previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, vars.division, vars.meta.beatNote, vars.meta.beatsPerBar, out percentageOfBar, addNote);
+                    addNote = LoadMidi.midiHelper.setNoteLength(vars.previousNoteAbsoluteTicks, midiEvent.AbsoluteTicks, vars.division, vars.meta.beatNote, vars.meta.beatsPerBar, out double percentageOfBar, addNote);
                     vars.previousNoteAbsoluteTicks = midiEvent.AbsoluteTicks;
 
                     vars.percentageOfBarReached += percentageOfBar;
@@ -48,8 +47,8 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
                 }
                 else
                 {
-                    // add rust
-                    //symbols.Add(new Rest());
+                    addNote = new Rest();
+                    vars.startedNoteIsClosed = false;
                 }
             }
         }
