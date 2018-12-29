@@ -20,6 +20,7 @@ namespace DPA_Musicsheets.Refactoring
             {
                 System.Diagnostics.Debug.Write(symbol + " ");
             }
+            System.Diagnostics.Debug.WriteLine("");
 
             MusicLoadedEventArgs args = new MusicLoadedEventArgs
             {

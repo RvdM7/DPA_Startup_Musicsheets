@@ -147,6 +147,17 @@
     <Compile Include="Refactoring\ConvertToPSAMHelper.cs" />
     <Compile Include="Refactoring\IConverter.cs" />
     <Compile Include="Refactoring\Load\ILoader.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\ILilypondMessageHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondAlternativeHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondBarHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondClefHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondNoteHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondRepeatHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondSectionEndHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondSectionStartHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondStaffHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondTempoHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondTimeHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\MidiChannelMessageHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\MidiMetaMessageHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\IMidiMessageHandler.cs" />

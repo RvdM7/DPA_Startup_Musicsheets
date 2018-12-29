@@ -8,22 +8,27 @@ namespace DPA_Musicsheets.Refactoring.Domain
 {
     class Meta : ISymbol
     {
-        public int bpm { get; set; }
-        public int beatNote { get; set; }
-        public int beatsPerBar { get; set; }
+        public int bpm = 0;
+        public int beatNote = 0;
+        public int beatsPerBar = 0;
         public bool changed = true;
-        /*
-        public Meta(int bpm, int beatNote, int beatsPerBar)
+        public string clef;
+
+        public Meta() { }
+
+        public Meta(Meta meta)
         {
-            this.bpm = bpm;
-            this.beatNote = beatNote;
-            this.beatsPerBar = beatsPerBar;
-        }*/
+            bpm = meta.bpm;
+            beatNote = meta.beatNote;
+            beatsPerBar = meta.beatsPerBar;
+        }
 
         void setChanged(bool setter)
         {
             changed = setter;
         }
+
+        public bool isReady() => bpm != 0 && beatNote != 0 && beatsPerBar != 0;
 
         public override string ToString()
         {

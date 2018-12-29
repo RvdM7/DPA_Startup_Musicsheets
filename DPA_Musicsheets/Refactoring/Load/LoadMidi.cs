@@ -25,9 +25,9 @@ namespace DPA_Musicsheets.Refactoring.Load
             public int previousMidiKey;
             public bool startedNoteIsClosed;
 
-            public LoadVars(Meta meta, string fileName)
+            public LoadVars(string fileName)
             {
-                this.meta = meta;
+                meta = new Meta();
                 MidiSequence = new Sequence();
                 MidiSequence.Load(fileName);
                 division = MidiSequence.Division;
@@ -49,7 +49,7 @@ namespace DPA_Musicsheets.Refactoring.Load
 
         public List<ISymbol> loadMusic()
         {
-            LoadVars vars = new LoadVars(new Meta(), fileName);
+            LoadVars vars = new LoadVars(fileName);
             List<ISymbol> symbols = new List<ISymbol>();
 
             ISymbol addNote = null;

@@ -8,12 +8,13 @@ namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
     class Flat : IOctaveModifier
     {
-        private int flats = 1;
+        private readonly int flats;
 
-        public void addModifier(int additive)
+        public Flat() { flats = 1; }
+
+        public Flat(int flats)
         {
-            //throw new NotImplementedException();
-            flats += additive;
+            this.flats = flats;
         }
 
         public int getModifier()

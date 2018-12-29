@@ -8,12 +8,13 @@ namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
     class Sharp : IOctaveModifier
     {
-        private int sharps = 1;
+        private readonly int sharps;
 
-        public void addModifier(int additive)
+        public Sharp() { sharps = 1; }
+
+        public Sharp(int sharps)
         {
-            //throw new NotImplementedException();
-            sharps += additive;
+            this.sharps = sharps;
         }
 
         public int getModifier()

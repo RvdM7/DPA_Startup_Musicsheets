@@ -9,6 +9,5 @@ namespace DPA_Musicsheets.Refactoring.Domain.Additive
     interface IOctaveModifier
     {
         int getModifier();
-        void addModifier(int additive);
     }
 }

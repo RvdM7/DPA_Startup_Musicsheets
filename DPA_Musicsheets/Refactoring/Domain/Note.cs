@@ -11,7 +11,7 @@ namespace DPA_Musicsheets.Refactoring.Domain
     {
         public Dots dots = null;
         public IOctaveModifier octaveModifier = null;
-        public int octave;
+        public int octave = 0;
         public int duration = 0;
         public readonly NoteHeight height;
 
