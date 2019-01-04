@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPA_Musicsheets.Refactoring.Load
+namespace DPA_Musicsheets.Refactoring.Domain.Enums
 {
-    class ConvertToPSAMHelper
-    {
-    }
+    public enum Clefs { treble, bass, none }
 }

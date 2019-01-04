@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
+using DPA_Musicsheets.Refactoring.Domain.Enums;
 
 namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
 {
@@ -11,7 +13,10 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
     {
         public void handleMessage(string value, ref LoadLilypond.LoadVars vars, ref ISymbol addSymbol)
         {
-            //throw new NotImplementedException();
+            if (!Regex.Match(value, @"relative").Success)
+            {
+                vars.previousNoteHeight = value[0];
+            }
         }
     }
 }

@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
-    class Dots : IAdditive
+    interface ICrossMole : IAdditive
     {
-        public readonly int dots = 0;
-
-        public Dots(int dots)
-        {
-            this.dots = dots;
-        }
+        int getModifier();
     }
 }

@@ -9,25 +9,26 @@ namespace DPA_Musicsheets.Refactoring.Load
 {
     class LoadLocator
     {
+        private Dictionary<string, ILoader> loaders = new Dictionary<string, ILoader>();
+
+        public LoadLocator()
+        {
+            // Add loaders
+            loaders.Add(".mid", new LoadMidi());
+            loaders.Add(".ly", new LoadLilypond());
+        }
+
         public ILoader LocateLoader(string fileName)
         {
-            if (Path.GetExtension(fileName).EndsWith(".mid"))
+            try
             {
-                //handle midi file
-                //throw new NotImplementedException();
-                return new LoadMidi(fileName);
-
+                ILoader loader = loaders[Path.GetExtension(fileName)];
+                loader.fileName = fileName;
+                return loader;
             }
-            else if (Path.GetExtension(fileName).EndsWith(".ly"))
+            catch (Exception)
             {
-                //handle lilypond file
-                //throw new NotImplementedException();
-                return new LoadLilypond(fileName);
-            }
-            else
-            {
-                //handle unknown
-                throw new NotSupportedException($"File extension  {Path.GetExtension(fileName)} is not supproted.");
+                throw new NotSupportedException($"File extension {Path.GetExtension(fileName)} is not supproted.");
             }
         }
     }

@@ -34,7 +34,7 @@ namespace DPA_Musicsheets.ViewModels
         private void MusicLoader_musicLoaded(object sender, MusicLoadedEventArgs e)
         {
             //throw new NotImplementedException();
-            IList<MusicalSymbol> symbols = (List<MusicalSymbol>)e.converter.convert(e.symbolList);
+            IList<MusicalSymbol> symbols = (List<MusicalSymbol>)e.staffsConverter.convert(e.symbolList);
             Staffs.Clear();
             foreach (var symbol in symbols)
             {

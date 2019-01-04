@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
-    interface IOctaveModifier
+    interface IAdditive
     {
-        int getModifier();
     }
 }

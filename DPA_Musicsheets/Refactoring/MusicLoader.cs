@@ -4,6 +4,7 @@ using DPA_Musicsheets.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DPA_Musicsheets.Refactoring.Converters;
 
 namespace DPA_Musicsheets.Refactoring
 {
@@ -16,18 +17,23 @@ namespace DPA_Musicsheets.Refactoring
             ILoader loader = new LoadLocator().LocateLoader(fileName);
             List<ISymbol> music = loader.loadMusic();
 
-            foreach (ISymbol symbol in music)
+            printList(music);
+
+            MusicLoadedEventArgs args = new MusicLoadedEventArgs
+            {
+                staffsConverter = new ConvertToPSAM(),
+                symbolList = music
+            };
+            onMusicLoaded(args);
+        }
+
+        private void printList(List<ISymbol> list)
+        {
+            foreach (ISymbol symbol in list)
             {
                 System.Diagnostics.Debug.Write(symbol + " ");
             }
             System.Diagnostics.Debug.WriteLine("");
-
-            MusicLoadedEventArgs args = new MusicLoadedEventArgs
-            {
-                converter = new ConvertToPSAM(),
-                symbolList = music
-            };
-            onMusicLoaded(args);
         }
 
         protected virtual void onMusicLoaded(MusicLoadedEventArgs e)
@@ -38,7 +44,10 @@ namespace DPA_Musicsheets.Refactoring
 
     public class MusicLoadedEventArgs : EventArgs
     {
-        public List<ISymbol> symbolList { get; set; }
-        public IConverter<ISymbol> converter { get; set; }
+        public List<ISymbol> symbolList;
+        public IConverter<ISymbol> staffsConverter;
+        public IConverter<ISymbol> editorConverter;
     }
+
+
 }

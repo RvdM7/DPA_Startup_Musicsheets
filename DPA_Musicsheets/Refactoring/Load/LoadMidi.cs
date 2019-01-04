@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
 using DPA_Musicsheets.Refactoring.Load.LoadHelper;
+using DPA_Musicsheets.Refactoring.Load.LoadHelper.Midi;
 using Sanford.Multimedia.Midi;
 
 namespace DPA_Musicsheets.Refactoring.Load
 {
     class LoadMidi : ILoader
     {
-        private readonly string fileName;
         private Dictionary<MessageType, IMidiMessageHandler> strategies = new Dictionary<MessageType, IMidiMessageHandler>();
         public static MidiHelper midiHelper = new MidiHelper();
 
@@ -24,7 +24,6 @@ namespace DPA_Musicsheets.Refactoring.Load
             public double percentageOfBarReached;
             public int previousMidiKey;
             public bool startedNoteIsClosed;
-
             public LoadVars(string fileName)
             {
                 meta = new Meta();
@@ -38,21 +37,20 @@ namespace DPA_Musicsheets.Refactoring.Load
             }
         }
 
-        public LoadMidi(string fileName)
+        public LoadMidi()
         {
-            this.fileName = fileName;
-
             // Add strategies
             strategies.Add(MessageType.Meta, new MidiMetaMessageHandler());
             strategies.Add(MessageType.Channel, new MidiChannelMessageHandler());
         }
 
-        public List<ISymbol> loadMusic()
+        public override List<ISymbol> loadMusic()
         {
             LoadVars vars = new LoadVars(fileName);
             List<ISymbol> symbols = new List<ISymbol>();
-
             ISymbol addNote = null;
+            vars.meta.clef = Domain.Enums.Clefs.treble;
+
             for (int i = 0; i < vars.MidiSequence.Count(); i++)
             {
                 Track track = vars.MidiSequence[i];
@@ -62,11 +60,10 @@ namespace DPA_Musicsheets.Refactoring.Load
                     // TODO : Split this switch statements and create separate logic.
                     // We want to split this so that we can expand our functionality later with new keywords for example.
                     // Hint: Command pattern? Strategies? Factory method?
-                    try
+                    if (strategies.ContainsKey(midiEvent.MidiMessage.MessageType))
                     {
                         strategies[midiEvent.MidiMessage.MessageType].handleMessage(midiEvent, ref vars, ref addNote, ref symbols);
                     }
-                    catch (Exception) { }
                 }
             }
             return symbols;

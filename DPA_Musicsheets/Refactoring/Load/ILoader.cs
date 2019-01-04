@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Load
 {
-    interface ILoader
+    abstract class ILoader
     {
-        List<ISymbol> loadMusic();
+        public string fileName;
+        public abstract List<ISymbol> loadMusic();
     }
 }

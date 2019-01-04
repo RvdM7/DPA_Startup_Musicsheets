@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
-    class Flat : IOctaveModifier
+    class Flat : ICrossMole
     {
         private readonly int flats;
 

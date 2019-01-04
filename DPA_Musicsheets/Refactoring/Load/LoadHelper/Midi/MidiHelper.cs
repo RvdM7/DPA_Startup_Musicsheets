@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
 using DPA_Musicsheets.Refactoring.Domain.Additive;
+using DPA_Musicsheets.Refactoring.Domain.Enums;
 
-namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
+namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Midi
 {
     /// <summary>
     /// TODO: Static classes with static helper methods are not done. Can a better domain class help with this?
     /// </summary>
-    class MidiHelper
+    class MidiHelper : LoadMidi
     {
         public ISymbol setNoteLength(int absoluteTicks, int nextNoteAbsoluteTicks, int division, int beatNote, int beatsPerBar, out double percentageOfBar, ISymbol symbol)
         {
@@ -79,9 +80,8 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
                     break;
                 }
             }
-            if (symbol is Note)
+            if (symbol is Note note)
             {
-                var note = symbol as Note;
                 note.dots = dots > 0 ? new Dots(dots) : note.dots;
                 note.duration = duration;
             }
@@ -96,70 +96,65 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
 
         public Note getNoteWithHeight(int previousMidiKey, int midiKey)
         {
-            Note note = null;
+            NoteHeight noteHeight = NoteHeight.None;
+            ICrossMole crossMole = null;
             int octave = (midiKey / 12) - 1;
             switch (midiKey % 12)
             {
                 case 0:
-                    note = new Note(NoteHeight.c);
+                    noteHeight = NoteHeight.c;
                     break;
                 case 1:
-                    note = new Note(NoteHeight.c);
-                    note.octaveModifier = new Flat();
+                    noteHeight = NoteHeight.c;
+                    crossMole = new Flat();
                     break;
                 case 2:
-                    note = new Note(NoteHeight.d);
+                    noteHeight = NoteHeight.d;
                     break;
                 case 3:
-                    note = new Note(NoteHeight.d);
-                    note.octaveModifier = new Flat();
+                    noteHeight = NoteHeight.d;
+                    crossMole = new Flat();
                     break;
                 case 4:
-                    note = new Note(NoteHeight.e);
+                    noteHeight = NoteHeight.e;
                     break;
                 case 5:
-                    note = new Note(NoteHeight.f);
+                    noteHeight = NoteHeight.f;
                     break;
                 case 6:
-                    note = new Note(NoteHeight.f);
-                    note.octaveModifier = new Flat();
+                    noteHeight = NoteHeight.f;
+                    crossMole = new Flat();
                     break;
                 case 7:
-                    note = new Note(NoteHeight.g);
+                    noteHeight = NoteHeight.g;
                     break;
                 case 8:
-                    note = new Note(NoteHeight.g);
-                    note.octaveModifier = new Flat();
+                    noteHeight = NoteHeight.g;
+                    crossMole = new Flat();
                     break;
                 case 9:
-                    note = new Note(NoteHeight.a);
+                    noteHeight = NoteHeight.a;
                     break;
                 case 10:
-                    note = new Note(NoteHeight.a);
-                    note.octaveModifier = new Flat();
+                    noteHeight = NoteHeight.a;
+                    crossMole = new Flat();
                     break;
                 case 11:
-                    note = new Note(NoteHeight.b);
+                    noteHeight = NoteHeight.b;
                     break;
             }
-            if (note == null)
+
+
+            if (noteHeight == NoteHeight.None)
             {
                 throw new NotSupportedException();
             }
 
-            int distance = midiKey - previousMidiKey;
-            int test = 0;
-            while (distance < -6)
+            var note = new Note(noteHeight)
             {
-                test--;
-                distance += 8;
-            }
-            while (distance > 6)
-            {
-                test++;
-                distance -= 8;
-            }
-            note.octave = test;
+                crossMole = crossMole,
+                octave = octave
+            };
 
             return note;
         }

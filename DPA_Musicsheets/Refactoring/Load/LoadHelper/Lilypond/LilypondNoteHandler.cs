@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
 using DPA_Musicsheets.Refactoring.Domain.Additive;
+using DPA_Musicsheets.Refactoring.Domain.Enums;
 
 namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
 {
@@ -13,29 +14,54 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
     {
         public void handleMessage(string value, ref LoadLilypond.LoadVars vars, ref ISymbol addSymbol)
         {
-            int count = Regex.Matches(value, @"\.").Count;
+            List<Char> notesorder = new List<Char> { 'c', 'd', 'e', 'f', 'g', 'a', 'b' };
 
-            Note note = new Note((NoteHeight)value[0])
+            NoteHeight noteHeight = (NoteHeight)value[0];
+            ICrossMole crossMole = null;
+            int dots = Regex.Matches(value, @"\.").Count;
+            int duration = int.Parse(Regex.Match(value, @"\d+").Value);
+
+            int octaveModifier = 0;
+            octaveModifier += Regex.Matches(value, @"\'").Count;
+            octaveModifier -= Regex.Matches(value, @",").Count;
+
+            int crossMoleCount = 0;
+            crossMoleCount += Regex.Matches(value, @"is").Count;
+            crossMoleCount -= Regex.Matches(value, @"es|as").Count;
+            if (crossMoleCount != 0)
             {
-                duration = int.Parse(Regex.Match(value, @"\d+").Value),
-                dots = count > 0 ? new Dots(count) : null
+                crossMole = crossMoleCount < 0 ? (ICrossMole)new Sharp(crossMoleCount) : new Flat(crossMoleCount);
+            }
+
+            int distanceWithPreviousNote = notesorder.IndexOf((char)noteHeight) - notesorder.IndexOf(vars.previousNoteHeight);
+            if (distanceWithPreviousNote > 3) // Shorter path possible the other way around
+            {
+                distanceWithPreviousNote -= 7; // The number of notes in an octave
+            }
+            else if (distanceWithPreviousNote < -3)
+            {
+                distanceWithPreviousNote += 7; // The number of notes in an octave
+            }
+
+            if (distanceWithPreviousNote + notesorder.IndexOf(vars.previousNoteHeight) >= 7)
+            {
+                vars.previousOctave++;
+            }
+            else if (distanceWithPreviousNote + notesorder.IndexOf(vars.previousNoteHeight) < 0)
+            {
+                vars.previousOctave--;
+            }
+
+            vars.previousOctave += octaveModifier;
+            Note note = new Note(noteHeight)
+            {
+                dots = dots > 0 ? new Dots(dots) : null,
+                duration = duration,
+                crossMole = crossMole,
+                octave = vars.previousOctave
             };
 
-            count = 0;
-            count += Regex.Matches(value, @"is").Count;
-            count -= Regex.Matches(value, @"es|as").Count;
-            if (count != 0)
-            {
-                note.octaveModifier = count < 0 ? (IOctaveModifier)new Sharp(count) : new Flat(count);
-            }
-
-            count = 0;
-            count += Regex.Matches(value, @"\'").Count;
-            count -= Regex.Matches(value, @",").Count;
-            if (count != 0)
-            {
-                note.octave = count;
-            }
+            vars.previousNoteHeight = (char)note.height;
 
             addSymbol = note;
         }

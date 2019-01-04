@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
 using Sanford.Multimedia.Midi;
 
-namespace DPA_Musicsheets.Refactoring.Load.LoadHelper
+namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Midi
 {
     interface IMidiMessageHandler
     {

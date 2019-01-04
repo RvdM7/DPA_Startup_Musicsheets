@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Refactoring.Domain.Additive
 {
-    class Sharp : IOctaveModifier
+    class Sharp : ICrossMole
     {
         private readonly int sharps;
 
