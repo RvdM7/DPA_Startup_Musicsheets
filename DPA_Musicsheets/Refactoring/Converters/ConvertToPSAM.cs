@@ -5,13 +5,22 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
-using DPA_Musicsheets.Refactoring.Domain.Enums;
+using DPA_Musicsheets.Refactoring.Domain.Clefs;
 using PSAMControlLibrary;
 
 namespace DPA_Musicsheets.Refactoring.Converters
 {
     class ConvertToPSAM : IConverter<ISymbol>
     {
+        private Dictionary<Type, ClefType> clefs = new Dictionary<Type, ClefType>();
+
+        public ConvertToPSAM()
+        {
+            // Add clefs
+            clefs.Add(typeof(Treble), ClefType.GClef);
+            clefs.Add(typeof(Bass), ClefType.FClef);
+        }
+
         object IConverter<ISymbol>.convert(List<ISymbol> symbols)
         {
             List<MusicalSymbol> musicalSymbols = new List<MusicalSymbol>();
@@ -26,7 +35,7 @@ namespace DPA_Musicsheets.Refactoring.Converters
                     // Crosses and Moles
                     int alter = note.crossMole != null ? note.crossMole.getModifier() : 0;
 
-                    var PSAMNote = new PSAMControlLibrary.Note(note.height.ToString().ToUpper(), alter, note.octave, (MusicalSymbolDuration)noteLength, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+                    var PSAMNote = new PSAMControlLibrary.Note(note.height.ToString().ToUpper(), alter, note.Octave, (MusicalSymbolDuration)noteLength, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
                     PSAMNote.NumberOfDots += note.dots != null ? note.dots.dots : 0;
 
                     musicalSymbols.Add(PSAMNote);
@@ -34,7 +43,7 @@ namespace DPA_Musicsheets.Refactoring.Converters
                 else if (symbol is Meta metaSymbol)
                 {
                     if (!metaSymbol.isReady()) { continue; }
-                    ClefType clefType = metaSymbol.clef != Clefs.treble ? ClefType.FClef : ClefType.GClef;
+                    ClefType clefType = clefs[metaSymbol.clef.GetType()];
                     musicalSymbols.Add(new Clef(clefType, 2));
                     musicalSymbols.Add(new TimeSignature(TimeSignatureType.Numbers, Convert.ToUInt32(metaSymbol.beatNote), Convert.ToUInt32(metaSymbol.beatsPerBar)));
                 }

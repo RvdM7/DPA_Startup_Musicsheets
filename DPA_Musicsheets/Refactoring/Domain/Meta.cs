@@ -1,4 +1,5 @@
-﻿using DPA_Musicsheets.Refactoring.Domain.Enums;
+﻿using DPA_Musicsheets.Refactoring.Domain.Clefs;
+using DPA_Musicsheets.Refactoring.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,14 @@ namespace DPA_Musicsheets.Refactoring.Domain
         public int beatNote = 0;
         public int beatsPerBar = 0;
         public bool changed = true;
-        public Clefs clef = Clefs.none;
+        public IClef clef = null;
 
         void setChanged(bool setter)
         {
             changed = setter;
         }
 
-        public bool isReady() => bpm != 0 && beatNote != 0 && beatsPerBar != 0 && clef != Clefs.none;
+        public bool isReady() => bpm != 0 && beatNote != 0 && beatsPerBar != 0 && clef != null;
 
         public override string ToString()
         {

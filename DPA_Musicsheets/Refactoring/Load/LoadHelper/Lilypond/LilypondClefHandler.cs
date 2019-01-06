@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DPA_Musicsheets.Refactoring.Domain;
+using DPA_Musicsheets.Refactoring.Domain.Clefs;
 using DPA_Musicsheets.Refactoring.Domain.Enums;
 
 namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
@@ -17,12 +18,12 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
             {
                 if (value == "treble")
                 {
-                    vars.meta.clef = Clefs.treble;
+                    vars.meta.clef = new Treble();
                     addSymbol = vars.meta.clone();
                 }
                 else if (value == "bass")
                 {
-                    vars.meta.clef = Clefs.bass;
+                    vars.meta.clef = new Bass();
                     addSymbol = vars.meta.clone();
                 }
             }

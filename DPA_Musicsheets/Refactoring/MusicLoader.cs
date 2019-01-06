@@ -17,14 +17,36 @@ namespace DPA_Musicsheets.Refactoring
             ILoader loader = new LoadLocator().LocateLoader(fileName);
             List<ISymbol> music = loader.loadMusic();
 
+            music.RemoveAll(remove);
+
             printList(music);
 
             MusicLoadedEventArgs args = new MusicLoadedEventArgs
             {
+                editorConverter = new ConvertToLilypond(),
                 staffsConverter = new ConvertToPSAM(),
                 symbolList = music
             };
             onMusicLoaded(args);
+        }
+
+        private static bool remove(ISymbol symbol)
+        {
+            if (symbol == null)
+            {
+                return true;
+            }
+            if (symbol is Meta meta && !meta.isReady())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void cleanUpList(ref List<ISymbol> symbols)
+        {
+            symbols.RemoveAll(item => item == null);
+            //symbols.RemoveAll(item => )
         }
 
         private void printList(List<ISymbol> list)

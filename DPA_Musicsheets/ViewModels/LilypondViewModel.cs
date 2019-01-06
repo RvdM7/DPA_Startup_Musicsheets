@@ -51,7 +51,6 @@ namespace DPA_Musicsheets.ViewModels
             // TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer and viewmodels don't know each other?
             // And viewmodels don't 
             _mainViewModel = mainViewModel;
-            //_musicLoader = musicLoader;
 
             _text = "Your lilypond text will appear here.";
             musicLoader.musicLoaded += musicLoaded;
@@ -59,8 +58,7 @@ namespace DPA_Musicsheets.ViewModels
 
         private void musicLoaded(object sender, MusicLoadedEventArgs e)
         {
-            //throw new NotImplementedException();
-            //e.converter.convert(e.symbolList);
+            LilypondText = (string)e.editorConverter.convert(e.symbolList);
         }
 
         public void LilypondTextLoaded(string text)

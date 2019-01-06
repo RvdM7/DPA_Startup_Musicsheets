@@ -69,8 +69,6 @@ namespace DPA_Musicsheets.Refactoring.Load
                     currentStrategy = null;
                 }
             }
-
-            symbols.RemoveAll(item => item == null);
             return symbols;
         }
 

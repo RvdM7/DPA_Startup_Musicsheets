@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPA_Musicsheets.Refactoring.Domain.Enums
+namespace DPA_Musicsheets.Refactoring.Domain.Clefs
 {
-    public enum Clefs { treble, bass, none }
+    class Treble : IClef
+    {
+    }
 }

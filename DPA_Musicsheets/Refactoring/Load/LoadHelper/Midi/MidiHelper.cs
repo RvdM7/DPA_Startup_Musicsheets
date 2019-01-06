@@ -153,7 +153,7 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Midi
             var note = new Note(noteHeight)
             {
                 crossMole = crossMole,
-                octave = octave
+                Octave = octave
             };
 
             return note;

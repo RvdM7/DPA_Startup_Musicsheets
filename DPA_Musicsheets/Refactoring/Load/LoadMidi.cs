@@ -49,7 +49,7 @@ namespace DPA_Musicsheets.Refactoring.Load
             LoadVars vars = new LoadVars(fileName);
             List<ISymbol> symbols = new List<ISymbol>();
             ISymbol addNote = null;
-            vars.meta.clef = Domain.Enums.Clefs.treble;
+            vars.meta.clef = new Domain.Clefs.Treble();
 
             for (int i = 0; i < vars.MidiSequence.Count(); i++)
             {
