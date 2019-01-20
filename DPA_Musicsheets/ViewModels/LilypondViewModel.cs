@@ -64,7 +64,7 @@ namespace DPA_Musicsheets.ViewModels
 
         private void musicLoaded(object sender, MusicLoadedEventArgs e)
         {
-            LilypondText = (string)e.editorConverter.convert(e.symbolList);
+            LilypondTextLoaded((string)e.editorConverter.convert(e.symbolList));
         }
 
         public void LilypondTextLoaded(string text)
