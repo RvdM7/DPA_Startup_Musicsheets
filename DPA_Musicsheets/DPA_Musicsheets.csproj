@@ -115,6 +115,7 @@
     <Compile Include="Converters\ConvertHelpers\PSAM\IToPSAM.cs" />
     <Compile Include="Converters\ConvertHelpers\PSAM\MetaToPSAM.cs" />
     <Compile Include="Converters\ConvertHelpers\PSAM\NoteToPSAM.cs" />
+    <Compile Include="Converters\ConvertHelpers\PSAM\PSAMFactory.cs" />
     <Compile Include="Converters\ConvertHelpers\PSAM\RestToPsam.cs" />
     <Compile Include="Converters\ConvertToMidi.cs" />
     <Compile Include="Domain\Additive\AdditiveFactory.cs" />

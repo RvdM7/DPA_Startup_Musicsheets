@@ -8,7 +8,7 @@ namespace DPA_Musicsheets.Converters.ConvertHelpers.PSAM
     {
         public void convert(ISymbol symbol, ref List<MusicalSymbol> musicalSymbols)
         {
-            musicalSymbols.Add(new Barline());
+            musicalSymbols.Add(PSAMFactory.getBarline());
         }
     }
 }

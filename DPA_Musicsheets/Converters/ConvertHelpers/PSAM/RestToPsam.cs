@@ -10,7 +10,7 @@ namespace DPA_Musicsheets.Converters.ConvertHelpers.PSAM
         {
             var rest = symbol as Domain.Rest;
 
-            musicalSymbols.Add(new PSAMControlLibrary.Rest((MusicalSymbolDuration)rest.duration));
+            musicalSymbols.Add(PSAMFactory.getRest((MusicalSymbolDuration)rest.duration));
         }
     }
 }

@@ -23,8 +23,8 @@ namespace DPA_Musicsheets.Converters.ConvertHelpers.PSAM
 
             if (!metaSymbol.isReady()) { return; }
             ClefType clefType = clefs[metaSymbol.clef.GetType()];
-            musicalSymbols.Add(new Clef(clefType, 2));
-            musicalSymbols.Add(new TimeSignature(TimeSignatureType.Numbers, Convert.ToUInt32(metaSymbol.beatNote), Convert.ToUInt32(metaSymbol.beatsPerBar)));
+            musicalSymbols.Add(PSAMFactory.getClef(clefType, 2));
+            musicalSymbols.Add(PSAMFactory.getTimeSignature(TimeSignatureType.Numbers, Convert.ToUInt32(metaSymbol.beatNote), Convert.ToUInt32(metaSymbol.beatsPerBar)));
         }
     }
 }
