@@ -67,10 +67,27 @@ namespace DPA_Musicsheets.ViewModels
             LilypondTextLoaded((string)e.editorConverter.convert(e.symbolList));
         }
 
+        private void saveToFile()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Midi|*.mid|Lilypond|*.ly|PDF|*.pdf" };
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string extension = Path.GetExtension(saveFileDialog.FileName);
+                if (saveStrategies.ContainsKey(extension))
+                {
+                    saveStrategies[extension](saveFileDialog.FileName);
+                }
+                else
+                {
+                    MessageBox.Show($"Extension {extension} is not supported.");
+                }
+            }
+        }
+
         public void LilypondTextLoaded(string text)
         {
             _textChangedByLoad = true;
-            LilypondText = _previousText = text;
+            LilypondText = text;
             _textChangedByLoad = false;
         }
 
@@ -119,20 +136,23 @@ namespace DPA_Musicsheets.ViewModels
 
         public ICommand SaveAsCommand => new RelayCommand(() =>
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Midi|*.mid|Lilypond|*.ly|PDF|*.pdf" };
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                string extension = Path.GetExtension(saveFileDialog.FileName);
-                if (saveStrategies.ContainsKey(extension))
-                {
-                    saveStrategies[extension](saveFileDialog.FileName);
-                }
-                else
-                {
-                    MessageBox.Show($"Extension {extension} is not supported.");
-                }
-            }
+            saveToFile();
         });
         #endregion Commands for buttons like Undo, Redo and SaveAs
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
+            if (_previousText != null)
+            {
+                // Show messageBox with question for saving
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                var result = MessageBox.Show("Save changes?", "Unsaved changes", buttons);
+                if (result == MessageBoxResult.Yes)
+                {
+                    saveToFile();
+                }
+            }
+        }
     }
 }
