@@ -5,9 +5,12 @@ namespace DPA_Musicsheets.Domain
     {
         public int duration;
 
-        public Rest() { }
+        public static Rest create(int duration = 0)
+        {
+            return new Rest(duration);
+        }
 
-        public Rest(int duration)
+        private Rest(int duration)
         {
             this.duration = duration;
         }

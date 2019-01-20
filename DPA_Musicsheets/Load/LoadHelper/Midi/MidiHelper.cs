@@ -78,7 +78,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
             }
             if (symbol is Note note)
             {
-                note.dots = dots > 0 ? new Dots(dots) : note.dots;
+                note.dots = dots > 0 ? AdditiveFactory.getDots(dots) : note.dots;
                 note.duration = duration;
             }
             else if (symbol is Rest)
@@ -102,14 +102,14 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                     break;
                 case 1:
                     noteHeight = NoteHeight.c;
-                    crossMole = new Flat();
+                    crossMole = AdditiveFactory.getFlat();
                     break;
                 case 2:
                     noteHeight = NoteHeight.d;
                     break;
                 case 3:
                     noteHeight = NoteHeight.d;
-                    crossMole = new Flat();
+                    crossMole = AdditiveFactory.getFlat();
                     break;
                 case 4:
                     noteHeight = NoteHeight.e;
@@ -119,21 +119,21 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                     break;
                 case 6:
                     noteHeight = NoteHeight.f;
-                    crossMole = new Flat();
+                    crossMole = AdditiveFactory.getFlat();
                     break;
                 case 7:
                     noteHeight = NoteHeight.g;
                     break;
                 case 8:
                     noteHeight = NoteHeight.g;
-                    crossMole = new Flat();
+                    crossMole = AdditiveFactory.getFlat();
                     break;
                 case 9:
                     noteHeight = NoteHeight.a;
                     break;
                 case 10:
                     noteHeight = NoteHeight.a;
-                    crossMole = new Flat();
+                    crossMole = AdditiveFactory.getFlat();
                     break;
                 case 11:
                     noteHeight = NoteHeight.b;
@@ -146,11 +146,9 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                 throw new NotSupportedException();
             }
 
-            var note = new Note(noteHeight)
-            {
-                crossMole = crossMole,
-                Octave = octave
-            };
+            var note = SymbolFactory.getNote(noteHeight);
+            note.crossMole = crossMole;
+            note.Octave = octave;
 
             return note;
         }

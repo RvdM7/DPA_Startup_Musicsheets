@@ -117,6 +117,7 @@
     <Compile Include="Converters\ConvertHelpers\PSAM\NoteToPSAM.cs" />
     <Compile Include="Converters\ConvertHelpers\PSAM\RestToPsam.cs" />
     <Compile Include="Converters\ConvertToMidi.cs" />
+    <Compile Include="Domain\Additive\AdditiveFactory.cs" />
     <Compile Include="Domain\Additive\IAdditive.cs" />
     <Compile Include="Domain\Additive\Dots.cs" />
     <Compile Include="Domain\Additive\Flat.cs" />
@@ -124,8 +125,10 @@
     <Compile Include="Domain\Additive\Sharp.cs" />
     <Compile Include="Domain\Bar.cs" />
     <Compile Include="Domain\Clefs\Bass.cs" />
+    <Compile Include="Domain\Clefs\ClefFactory.cs" />
     <Compile Include="Domain\Clefs\IClef.cs" />
     <Compile Include="Domain\Clefs\Treble.cs" />
+    <Compile Include="Domain\SymbolFactory.cs" />
     <Compile Include="Domain\ISymbol.cs" />
     <Compile Include="Domain\Meta.cs" />
     <Compile Include="Domain\Enums\NoteHeight.cs" />

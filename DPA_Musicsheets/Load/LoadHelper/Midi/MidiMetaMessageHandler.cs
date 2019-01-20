@@ -37,7 +37,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                         if (vars.percentageOfBarReached >= 1)
                         {
                             percentageOfBar = percentageOfBar - 1;
-                            symbols.Add(new Bar());
+                            symbols.Add(SymbolFactory.getBar());
                         }
                     }
                     break;

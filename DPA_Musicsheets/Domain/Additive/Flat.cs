@@ -5,16 +5,18 @@ namespace DPA_Musicsheets.Domain.Additive
     {
         private readonly int flats;
 
-        public Flat() { flats = 1; }
+        public static Flat create(int flats = 1)
+        {
+            return new Flat(flats);
+        }
 
-        public Flat(int flats)
+        private Flat(int flats)
         {
             this.flats = flats;
         }
 
         public int getModifier()
         {
-            //throw new NotImplementedException();
             return flats;
         }
     }

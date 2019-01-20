@@ -10,6 +10,13 @@ namespace DPA_Musicsheets.Domain
         public bool changed = true;
         public IClef clef = null;
 
+        public static Meta create()
+        {
+            return new Meta();
+        }
+
+        private Meta() { }
+
         void setChanged(bool setter)
         {
             changed = setter;
@@ -36,14 +43,13 @@ namespace DPA_Musicsheets.Domain
 
         public Meta clone()
         {
-            Meta meta = new Meta
-            {
-                bpm = bpm,
-                beatNote = beatNote,
-                beatsPerBar = beatsPerBar,
-                clef = clef,
-                changed = changed
-            };
+            Meta meta = SymbolFactory.getMeta();
+            meta.bpm = bpm;
+            meta.beatNote = beatNote;
+            meta.beatsPerBar = beatsPerBar;
+            meta.clef = clef;
+            meta.changed = changed;
+
             return meta;
         }
     }

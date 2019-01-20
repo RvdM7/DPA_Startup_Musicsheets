@@ -8,7 +8,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
         public void handleMessage(string value, ref LoadLilypond.LoadVars vars, ref ISymbol addSymbol)
         {
             int duration = int.Parse(Regex.Match(value, @"\d+").Value);
-            addSymbol = new Rest(duration);
+            addSymbol = SymbolFactory.getRest(duration);
         }
     }
 }

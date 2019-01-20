@@ -23,8 +23,12 @@ namespace DPA_Musicsheets.Domain
             }
         }
 
+        public static Note create(NoteHeight noteHeight)
+        {
+            return new Note(noteHeight);
+        }
 
-        public Note(NoteHeight noteHeight)
+        private Note(NoteHeight noteHeight)
         {
             height = noteHeight;
         }

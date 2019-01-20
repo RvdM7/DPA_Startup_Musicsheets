@@ -5,7 +5,12 @@ namespace DPA_Musicsheets.Domain.Additive
     {
         public readonly int dots = 0;
 
-        public Dots(int dots)
+        public static Dots create(int dots)
+        {
+            return new Dots(dots);
+        }
+
+        private Dots(int dots)
         {
             this.dots = dots;
         }

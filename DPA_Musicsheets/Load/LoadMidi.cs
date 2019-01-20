@@ -22,7 +22,7 @@ namespace DPA_Musicsheets.Load
             public bool startedNoteIsClosed;
             public LoadVars(string fileName)
             {
-                meta = new Meta();
+                meta = SymbolFactory.getMeta();
                 MidiSequence = new Sequence();
                 MidiSequence.Load(fileName);
                 division = MidiSequence.Division;
@@ -45,7 +45,7 @@ namespace DPA_Musicsheets.Load
             LoadVars vars = new LoadVars(file);
             List<ISymbol> symbols = new List<ISymbol>();
             ISymbol addNote = null;
-            vars.meta.clef = new Domain.Clefs.Treble();
+            vars.meta.clef = Domain.Clefs.ClefFactory.getTreble();
 
             for (int i = 0; i < vars.MidiSequence.Count(); i++)
             {

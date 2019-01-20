@@ -27,7 +27,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
             crossMoleCount -= Regex.Matches(value, @"es|as").Count;
             if (crossMoleCount != 0)
             {
-                crossMole = crossMoleCount < 0 ? (ICrossMole)new Sharp(Math.Abs(crossMoleCount)) : new Flat(crossMoleCount);
+                crossMole = crossMoleCount < 0 ? (ICrossMole)AdditiveFactory.getSharp(Math.Abs(crossMoleCount)) : AdditiveFactory.getFlat(crossMoleCount);
             }
 
             int distanceWithPreviousNote = notesorder.IndexOf((char)noteHeight) - notesorder.IndexOf(vars.previousNoteHeight);
@@ -49,14 +49,13 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
                 vars.previousOctave--;
             }
 
-            Note note = new Note(noteHeight)
-            {
-                dots = dots > 0 ? new Dots(dots) : null,
-                duration = duration,
-                crossMole = crossMole,
-                Octave = vars.previousOctave,
-                octaveModifier = octaveModifier
-            };
+            Note note = SymbolFactory.getNote(noteHeight);
+            note.dots = dots > 0 ? AdditiveFactory.getDots(dots) : null;
+            note.duration = duration;
+            note.crossMole = crossMole;
+            note.Octave = vars.previousOctave;
+            note.octaveModifier = octaveModifier;
+
 
             vars.previousOctave += octaveModifier;
             vars.previousNoteHeight = (char)note.height;

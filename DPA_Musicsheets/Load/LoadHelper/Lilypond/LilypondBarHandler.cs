@@ -6,8 +6,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
     {
         public void handleMessage(string value, ref LoadLilypond.LoadVars vars, ref ISymbol addSymbol)
         {
-            //throw new NotImplementedException();
-            addSymbol = new Bar();
+            addSymbol = SymbolFactory.getBar();
         }
     }
 }

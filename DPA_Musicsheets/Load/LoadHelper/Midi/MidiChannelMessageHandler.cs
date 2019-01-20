@@ -29,7 +29,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                     if (vars.percentageOfBarReached >= 1)
                     {
                         vars.percentageOfBarReached -= 1;
-                        symbols.Add(new Bar());
+                        symbols.Add(SymbolFactory.getBar());
                     }
                     vars.startedNoteIsClosed = true;
 
@@ -43,7 +43,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Midi
                 }
                 else
                 {
-                    addNote = new Rest();
+                    addNote = SymbolFactory.getRest();
                     vars.startedNoteIsClosed = false;
                 }
             }

@@ -75,7 +75,7 @@ namespace DPA_Musicsheets.Load
             ILilypondMessageHandler currentStrategy = null;
             LoadVars vars = new LoadVars
             {
-                meta = new Meta(),
+                meta = SymbolFactory.getMeta(),
                 previousOctave = 4,
                 previousNoteHeight = (char)NoteHeight.c
             };
