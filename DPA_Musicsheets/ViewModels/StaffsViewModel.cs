@@ -3,6 +3,7 @@ using PSAMControlLibrary;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DPA_Musicsheets.Events;
+using DPA_Musicsheets.Music;
 
 namespace DPA_Musicsheets.ViewModels
 {
@@ -14,7 +15,7 @@ namespace DPA_Musicsheets.ViewModels
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="musicLoader">We need the musicloader so it can set our staffs.</param>
+        /// <param name="musicList">We need the musiclist so it can set our staffs.</param>
         public StaffsViewModel(MusicList musicList)
         {
             Staffs = new ObservableCollection<MusicalSymbol>();

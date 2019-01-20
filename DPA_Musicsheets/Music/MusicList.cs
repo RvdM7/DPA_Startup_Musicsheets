@@ -4,7 +4,7 @@ using DPA_Musicsheets.Events;
 using DPA_Musicsheets.Domain;
 using DPA_Musicsheets.Converters;
 
-namespace DPA_Musicsheets
+namespace DPA_Musicsheets.Music
 {
     public class MusicList
     {
@@ -27,22 +27,13 @@ namespace DPA_Musicsheets
                 value.RemoveAll(unnecessary);
                 music = value;
                 args.symbolList = music;
-                onMusicLoaded(args);
+                musicLoaded?.Invoke(this, args);
             }
-        }
-
-        protected void onMusicLoaded(MusicLoadedEventArgs e)
-        {
-            musicLoaded?.Invoke(this, e);
         }
 
         private static bool unnecessary(ISymbol symbol)
         {
             if (symbol == null)
-            {
-                return true;
-            }
-            if (symbol is Meta meta && !meta.isReady())
             {
                 return true;
             }

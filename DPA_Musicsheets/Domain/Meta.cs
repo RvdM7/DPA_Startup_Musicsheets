@@ -22,6 +22,18 @@ namespace DPA_Musicsheets.Domain
             return $"{clef}: {bpm}-{beatNote}-{beatsPerBar}";
         }
 
+        public bool compare(Meta other)
+        {
+            if (bpm == other.bpm
+                    && beatNote == other.beatNote
+                    && beatsPerBar == other.beatsPerBar
+                    && clef == other.clef)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public Meta clone()
         {
             Meta meta = new Meta

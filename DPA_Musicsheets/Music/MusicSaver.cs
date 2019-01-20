@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace DPA_Musicsheets
+namespace DPA_Musicsheets.Music
 {
     public class MusicSaver
     {
@@ -18,8 +18,8 @@ namespace DPA_Musicsheets
         public void saveToMidi(string fileName)
         {
             IConverter<ISymbol> converter = new ConvertToMidi();
-            Sanford.Multimedia.Midi.Sequence test = (Sanford.Multimedia.Midi.Sequence)converter.convert(musicList.Music);
-            test.Save(fileName);
+            Sanford.Multimedia.Midi.Sequence tracks = (Sanford.Multimedia.Midi.Sequence)converter.convert(musicList.Music);
+            tracks.Save(fileName);
         }
 
         public void saveToLilypond(string fileName)

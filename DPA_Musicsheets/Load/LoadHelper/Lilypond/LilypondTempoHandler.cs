@@ -11,7 +11,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
             {
                 string[] tempo = value.Split('=');
                 vars.meta.bpm = int.Parse(tempo[1]);
-                addSymbol = vars.meta.clone();
+                addSymbol = vars.meta.isReady() ? vars.meta.clone() : addSymbol;
             }
         }
     }

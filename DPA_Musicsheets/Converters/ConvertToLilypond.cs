@@ -22,7 +22,7 @@ namespace DPA_Musicsheets.Converters
         public object convert(List<ISymbol> musicList)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("\\relative c' {");
+            stringBuilder.AppendLine("\\relative c'");
 
             foreach (ISymbol symbol in musicList)
             {

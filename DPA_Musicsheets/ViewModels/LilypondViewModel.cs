@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DPA_Musicsheets.Events;
 using System.Collections.Generic;
+using DPA_Musicsheets.Music;
 
 namespace DPA_Musicsheets.ViewModels
 {

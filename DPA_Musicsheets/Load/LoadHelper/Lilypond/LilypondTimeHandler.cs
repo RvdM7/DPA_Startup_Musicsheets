@@ -13,7 +13,7 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
                 string[] time = value.Split('/');
                 vars.meta.beatNote = int.Parse(time[0]);
                 vars.meta.beatsPerBar = int.Parse(time[1]);
-                addSymbol = vars.meta.clone();
+                addSymbol = vars.meta.isReady() ? vars.meta.clone() : addSymbol;
             }
         }
     }

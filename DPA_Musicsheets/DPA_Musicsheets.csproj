@@ -156,9 +156,9 @@
     <Compile Include="Load\LoadLilypond.cs" />
     <Compile Include="Load\LoadLocator.cs" />
     <Compile Include="Load\LoadMidi.cs" />
-    <Compile Include="MusicList.cs" />
-    <Compile Include="MusicLoader.cs" />
-    <Compile Include="MusicSaver.cs" />
+    <Compile Include="Music\MusicList.cs" />
+    <Compile Include="Music\MusicLoader.cs" />
+    <Compile Include="Music\MusicSaver.cs" />
     <Compile Include="ViewModels\MidiPlayerViewModel.cs" />
     <Compile Include="ViewModels\StaffsViewModel.cs" />
     <Compile Include="Views\MidiPlayerCtrl.xaml.cs">
@@ -277,9 +277,7 @@
     <Content Include="Files\Eenvoudige voorbeeldfiles\Rusten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Standaard_noten.ly" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Save\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

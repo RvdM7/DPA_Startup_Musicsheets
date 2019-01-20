@@ -13,12 +13,12 @@ namespace DPA_Musicsheets.Load.LoadHelper.Lilypond
                 if (value == "treble")
                 {
                     vars.meta.clef = new Treble();
-                    addSymbol = vars.meta.clone();
+                    addSymbol = vars.meta.isReady() ? vars.meta.clone() : addSymbol;
                 }
                 else if (value == "bass")
                 {
                     vars.meta.clef = new Bass();
-                    addSymbol = vars.meta.clone();
+                    addSymbol = vars.meta.isReady() ? vars.meta.clone() : addSymbol;
                 }
             }
         }

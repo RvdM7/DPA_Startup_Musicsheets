@@ -45,7 +45,7 @@ namespace DPA_Musicsheets.Load
             {
                 sb.AppendLine(line);
             }
-            string content = sb.ToString();//.Replace(Environment.NewLine, " ");
+            string content = sb.ToString();
 
             return loadFromString(content);
         }

@@ -9,12 +9,12 @@ namespace DPA_Musicsheets.Converters
     class ConvertToMidi : IConverter<ISymbol>
     {
         private Dictionary<Type, IToMidiConverter> conveters = new Dictionary<Type, IToMidiConverter>();
-
+        /*
         public struct convertVars
         {
             public Meta meta;
             public int tempo;
-        }
+        }*/
 
         public ConvertToMidi()
         {
@@ -22,9 +22,9 @@ namespace DPA_Musicsheets.Converters
         }
 
         public object convert(List<ISymbol> musicList)
-        {
+        {/*
             List<string> notesOrderWithCrosses = new List<string>() { "c", "cis", "d", "dis", "e", "f", "fis", "g", "gis", "a", "ais", "b" };
-            int absoluteTicks = 0;
+            int absoluteTicks = 0;*/
 
             Sequence sequence = new Sequence();
             /*

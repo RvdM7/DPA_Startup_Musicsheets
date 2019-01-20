@@ -1,7 +1,7 @@
 ﻿using DPA_Musicsheets.Load;
 using System;
 
-namespace DPA_Musicsheets
+namespace DPA_Musicsheets.Music
 {
     public class MusicLoader
     {
@@ -12,7 +12,7 @@ namespace DPA_Musicsheets
             this.musicList = musicList;
         }
 
-        public void loadFromFile(String fileName)
+        public void loadFromFile(string fileName)
         {
             musicList.Music = new LoadLocator().LocateLoader(fileName).loadFromFile();
         }
