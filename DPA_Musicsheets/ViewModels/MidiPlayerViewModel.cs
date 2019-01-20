@@ -1,5 +1,4 @@
-﻿using DPA_Musicsheets.Refactoring;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Sanford.Multimedia.Midi;
 using System;

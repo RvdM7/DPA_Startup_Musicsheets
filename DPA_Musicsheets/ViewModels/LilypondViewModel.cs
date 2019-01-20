@@ -1,5 +1,4 @@
-﻿using DPA_Musicsheets.Refactoring;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Win32;
 using System;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using DPA_Musicsheets.Refactoring.Events;
+using DPA_Musicsheets.Events;
 using System.Collections.Generic;
 
 namespace DPA_Musicsheets.ViewModels
@@ -47,7 +46,7 @@ namespace DPA_Musicsheets.ViewModels
         private readonly static int MILLISECONDS_BEFORE_CHANGE_HANDLED = 1500;
         private bool _waitingForRender = false;
         private MusicLoader _musicLoader;
-        private Dictionary<string, Action> saveStrategies = new Dictionary<string, Action>();
+        private Dictionary<string, Action<string>> saveStrategies = new Dictionary<string, Action<string>>();
 
         public LilypondViewModel(MainViewModel mainViewModel, MusicList musicList, MusicLoader musicLoader, MusicSaver musicSaver)
         {
@@ -125,7 +124,7 @@ namespace DPA_Musicsheets.ViewModels
                 string extension = Path.GetExtension(saveFileDialog.FileName);
                 if (saveStrategies.ContainsKey(extension))
                 {
-                    saveStrategies[extension]();
+                    saveStrategies[extension](saveFileDialog.FileName);
                 }
                 else
                 {

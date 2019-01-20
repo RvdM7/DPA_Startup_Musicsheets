@@ -1,6 +1,4 @@
-﻿using DPA_Musicsheets.Refactoring;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
 namespace DPA_Musicsheets.ViewModels
