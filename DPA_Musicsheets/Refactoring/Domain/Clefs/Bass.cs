@@ -8,5 +8,9 @@ namespace DPA_Musicsheets.Refactoring.Domain.Clefs
 {
     class Bass : IClef
     {
+        public override string ToString()
+        {
+            return "Bass";
+        }
     }
 }

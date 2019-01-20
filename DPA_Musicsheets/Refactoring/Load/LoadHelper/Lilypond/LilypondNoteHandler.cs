@@ -52,7 +52,6 @@ namespace DPA_Musicsheets.Refactoring.Load.LoadHelper.Lilypond
                 vars.previousOctave--;
             }
 
-
             Note note = new Note(noteHeight)
             {
                 dots = dots > 0 ? new Dots(dots) : null,

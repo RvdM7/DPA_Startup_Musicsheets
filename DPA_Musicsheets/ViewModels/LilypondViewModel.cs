@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using DPA_Musicsheets.Refactoring.Events;
+using System.Collections.Generic;
 
 namespace DPA_Musicsheets.ViewModels
 {
     public class LilypondViewModel : ViewModelBase
     {
-        //private MusicLoader _musicLoader;
         private MainViewModel _mainViewModel { get; set; }
 
         private string _text;
@@ -43,17 +44,22 @@ namespace DPA_Musicsheets.ViewModels
 
         private bool _textChangedByLoad = false;
         private DateTime _lastChange;
-        private static int MILLISECONDS_BEFORE_CHANGE_HANDLED = 1500;
+        private readonly static int MILLISECONDS_BEFORE_CHANGE_HANDLED = 1500;
         private bool _waitingForRender = false;
+        private MusicLoader _musicLoader;
+        private Dictionary<string, Action> saveStrategies = new Dictionary<string, Action>();
 
-        public LilypondViewModel(MainViewModel mainViewModel, MusicLoader musicLoader)
+        public LilypondViewModel(MainViewModel mainViewModel, MusicList musicList, MusicLoader musicLoader, MusicSaver musicSaver)
         {
-            // TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer and viewmodels don't know each other?
-            // And viewmodels don't 
             _mainViewModel = mainViewModel;
+            _musicLoader = musicLoader;
 
             _text = "Your lilypond text will appear here.";
-            musicLoader.musicLoaded += musicLoaded;
+            musicList.musicLoaded += musicLoaded;
+
+            saveStrategies.Add(".pdf", musicSaver.saveToPDF);
+            saveStrategies.Add(".ly", musicSaver.saveToLilypond);
+            saveStrategies.Add(".mid", musicSaver.saveToMidi);
         }
 
         private void musicLoaded(object sender, MusicLoadedEventArgs e)
@@ -87,7 +93,7 @@ namespace DPA_Musicsheets.ViewModels
                     {
                         _waitingForRender = false;
                         UndoCommand.RaiseCanExecuteChanged();
-                        //Helpers.MusicLoaderHelper.LoadLilypondIntoWpfStaffsAndMidi.LoadLilypondIntoWpfStaffsAndMidiF(LilypondText);
+                        _musicLoader.loadFromEditor(LilypondText);
 
                         _mainViewModel.CurrentState = "";
                     }
@@ -113,23 +119,13 @@ namespace DPA_Musicsheets.ViewModels
 
         public ICommand SaveAsCommand => new RelayCommand(() =>
         {
-            // TODO: In the application a lot of classes know which filetypes are supported. Lots and lots of repeated code here...
-            // Can this be done better?
             SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Midi|*.mid|Lilypond|*.ly|PDF|*.pdf" };
             if (saveFileDialog.ShowDialog() == true)
             {
                 string extension = Path.GetExtension(saveFileDialog.FileName);
-                if (extension.EndsWith(".mid"))
+                if (saveStrategies.ContainsKey(extension))
                 {
-                    Helpers.MusicLoaderHelper.SaveToMidi.SaveToMidiF(saveFileDialog.FileName);
-                }
-                else if (extension.EndsWith(".ly"))
-                {
-                    Helpers.MusicLoaderHelper.SaveToLilypond.SaveToLilypondF(saveFileDialog.FileName, LilypondText);
-                }
-                else if (extension.EndsWith(".pdf"))
-                {
-                    Helpers.MusicLoaderHelper.SaveToPDF.SaveToPDFF(saveFileDialog.FileName, LilypondText);
+                    saveStrategies[extension]();
                 }
                 else
                 {

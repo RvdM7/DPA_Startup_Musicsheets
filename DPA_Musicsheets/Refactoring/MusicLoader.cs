@@ -1,75 +1,25 @@
 ﻿using DPA_Musicsheets.Refactoring.Load;
-using DPA_Musicsheets.Refactoring.Domain;
-using DPA_Musicsheets.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using DPA_Musicsheets.Refactoring.Converters;
 
 namespace DPA_Musicsheets.Refactoring
 {
     public class MusicLoader
     {
-        public event EventHandler<MusicLoadedEventArgs> musicLoaded;
+        MusicList musicList;
 
-        public void loadMusic(String fileName)
+        public MusicLoader(MusicList musicList)
         {
-            ILoader loader = new LoadLocator().LocateLoader(fileName);
-            List<ISymbol> music = loader.loadMusic();
-
-            music.RemoveAll(remove);
-
-            printList(music);
-
-            MusicLoadedEventArgs args = new MusicLoadedEventArgs
-            {
-                editorConverter = new ConvertToLilypond(),
-                staffsConverter = new ConvertToPSAM(),
-                symbolList = music
-            };
-            onMusicLoaded(args);
+            this.musicList = musicList;
         }
 
-        private static bool remove(ISymbol symbol)
+        public void loadFromFile(String fileName)
         {
-            if (symbol == null)
-            {
-                return true;
-            }
-            if (symbol is Meta meta && !meta.isReady())
-            {
-                return true;
-            }
-            return false;
+            musicList.Music = new LoadLocator().LocateLoader(fileName).loadFromFile();
         }
 
-        private void cleanUpList(ref List<ISymbol> symbols)
+        public void loadFromEditor(string editorloads)
         {
-            symbols.RemoveAll(item => item == null);
-            //symbols.RemoveAll(item => )
-        }
-
-        private void printList(List<ISymbol> list)
-        {
-            foreach (ISymbol symbol in list)
-            {
-                System.Diagnostics.Debug.Write(symbol + " ");
-            }
-            System.Diagnostics.Debug.WriteLine("");
-        }
-
-        protected virtual void onMusicLoaded(MusicLoadedEventArgs e)
-        {
-            musicLoaded?.Invoke(this, e);
+            musicList.Music = new LoadLilypond().loadFromString(editorloads);
         }
     }
-
-    public class MusicLoadedEventArgs : EventArgs
-    {
-        public List<ISymbol> symbolList;
-        public IConverter<ISymbol> staffsConverter;
-        public IConverter<ISymbol> editorConverter;
-    }
-
-
 }

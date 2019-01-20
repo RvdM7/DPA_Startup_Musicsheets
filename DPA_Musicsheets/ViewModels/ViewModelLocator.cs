@@ -14,7 +14,9 @@ namespace DPA_Musicsheets.ViewModels
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SimpleIoc.Default.Register<MusicList>();
             SimpleIoc.Default.Register<MusicLoader>();
+            SimpleIoc.Default.Register<MusicSaver>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LilypondViewModel>();

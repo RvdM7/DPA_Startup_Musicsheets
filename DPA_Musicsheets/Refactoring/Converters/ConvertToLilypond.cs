@@ -18,6 +18,7 @@ namespace DPA_Musicsheets.Refactoring.Converters
             converters.Add(typeof(Note), new NoteToLilypond());
             converters.Add(typeof(Bar), new BarToLilypond());
             converters.Add(typeof(Meta), new MetaToLilypond());
+            converters.Add(typeof(Rest), new RestToLilypond());
         }
 
         public object convert(List<ISymbol> musicList)

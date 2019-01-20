@@ -10,9 +10,16 @@ namespace DPA_Musicsheets.Refactoring.Domain
     {
         public int duration;
 
+        public Rest() { }
+
+        public Rest(int duration)
+        {
+            this.duration = duration;
+        }
+
         public override string ToString()
         {
-            return $"r{duration}";
+            return $"'r{duration}'";
         }
     }
 }

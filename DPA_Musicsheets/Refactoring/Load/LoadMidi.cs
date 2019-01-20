@@ -44,9 +44,9 @@ namespace DPA_Musicsheets.Refactoring.Load
             strategies.Add(MessageType.Channel, new MidiChannelMessageHandler());
         }
 
-        public override List<ISymbol> loadMusic()
+        public override List<ISymbol> loadFromFile()
         {
-            LoadVars vars = new LoadVars(fileName);
+            LoadVars vars = new LoadVars(file);
             List<ISymbol> symbols = new List<ISymbol>();
             ISymbol addNote = null;
             vars.meta.clef = new Domain.Clefs.Treble();

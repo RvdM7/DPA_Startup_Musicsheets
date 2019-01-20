@@ -1,5 +1,5 @@
-﻿using DPA_Musicsheets.Models;
-using DPA_Musicsheets.Refactoring.Domain;
+﻿using DPA_Musicsheets.Refactoring.Domain;
+using DPA_Musicsheets.Refactoring.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace DPA_Musicsheets.Refactoring.Load
 {
     abstract class ILoader
     {
-        public string fileName;
-        public abstract List<ISymbol> loadMusic();
+        public string file;
+        public abstract List<ISymbol> loadFromFile();
     }
 }

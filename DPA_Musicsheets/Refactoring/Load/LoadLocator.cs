@@ -23,7 +23,7 @@ namespace DPA_Musicsheets.Refactoring.Load
             try
             {
                 ILoader loader = loaders[Path.GetExtension(fileName)];
-                loader.fileName = fileName;
+                loader.file = fileName;
                 return loader;
             }
             catch (Exception)

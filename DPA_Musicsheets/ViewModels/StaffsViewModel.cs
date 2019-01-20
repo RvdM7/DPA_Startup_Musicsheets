@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using DPA_Musicsheets.Refactoring.Events;
 
 namespace DPA_Musicsheets.ViewModels
 {
@@ -24,11 +25,10 @@ namespace DPA_Musicsheets.ViewModels
         /// Constructor
         /// </summary>
         /// <param name="musicLoader">We need the musicloader so it can set our staffs.</param>
-        public StaffsViewModel(MusicLoader musicLoader)
+        public StaffsViewModel(MusicList musicList)
         {
-            // TODO: Can we use some sort of eventing system so the managers layer doesn't have to know the viewmodel layer?
             Staffs = new ObservableCollection<MusicalSymbol>();
-            musicLoader.musicLoaded += MusicLoader_musicLoaded;
+            musicList.musicLoaded += MusicLoader_musicLoaded;
         }
 
         private void MusicLoader_musicLoaded(object sender, MusicLoadedEventArgs e)

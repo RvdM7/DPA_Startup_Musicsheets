@@ -35,10 +35,44 @@ namespace DPA_Musicsheets.Refactoring.Load
             strategies.Add("|", new LilypondBarHandler());
             strategies.Add("Note", new LilypondNoteHandler());
             strategies.Add("~", new LilypondBridgeHandler());
+            strategies.Add("r", new LilypondRestHandler());
         }
 
-        public override List<ISymbol> loadMusic()
+        public override List<ISymbol> loadFromFile()
         {
+            StringBuilder sb = new StringBuilder();
+            foreach (var line in File.ReadAllLines(file))
+            {
+                sb.AppendLine(line);
+            }
+            string content = sb.ToString();//.Replace(Environment.NewLine, " ");
+
+            return loadFromString(content);
+        }
+
+        private bool checkRegex(string s, ref LoadVars vars, ref ISymbol addSymbol)
+        {
+            if (new Regex(@"[~]?[a-g][,'eis]*[0-9]+[.]*").IsMatch(s))
+            {
+                // note
+                strategies["Note"].handleMessage(s, ref vars, ref addSymbol);
+                return true;
+            }
+            else if (new Regex(@"r.*?[0-9][.]*").IsMatch(s))
+            {
+                // rest
+                strategies["r"].handleMessage(s, ref vars, ref addSymbol);
+                return true;
+            }
+            return false;
+        }
+
+        public List<ISymbol> loadFromString(string content)
+        {
+            content = content.Replace(Environment.NewLine, " ");
+            List<ISymbol> symbols = new List<ISymbol>();
+            ISymbol addSymbol = null;
+            ILilypondMessageHandler currentStrategy = null;
             LoadVars vars = new LoadVars
             {
                 meta = new Meta(),
@@ -46,14 +80,10 @@ namespace DPA_Musicsheets.Refactoring.Load
                 previousNoteHeight = (char)NoteHeight.c
             };
 
-            List<ISymbol> symbols = new List<ISymbol>();
-            ISymbol addSymbol = null;
-            ILilypondMessageHandler currentStrategy = null;
-            string content = readFile();
-
             foreach (string s in content.Split(' ').Where(item => item.Length > 0))
             {
                 symbols.Add(addSymbol);
+                addSymbol = null;
                 if (currentStrategy != null)
                 {
                     currentStrategy.handleMessage(s, ref vars, ref addSymbol);
@@ -69,35 +99,8 @@ namespace DPA_Musicsheets.Refactoring.Load
                     currentStrategy = null;
                 }
             }
+            symbols.Add(addSymbol);
             return symbols;
-        }
-
-        private bool checkRegex(string s, ref LoadVars vars, ref ISymbol addSymbol)
-        {
-            if (new Regex(@"[~]?[a-g][,'eis]*[0-9]+[.]*").IsMatch(s))
-            {
-                // note
-                strategies["Note"].handleMessage(s, ref vars, ref addSymbol);
-                return true;
-            }
-            else if (new Regex(@"r.*?[0-9][.]*").IsMatch(s))
-            {
-                // rest
-                return true;
-            }
-            return false;
-        }
-
-        private string readFile()
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var line in File.ReadAllLines(fileName))
-            {
-                sb.AppendLine(line);
-            }
-            string content = sb.ToString().Replace(Environment.NewLine, " ");
-
-            return content;
         }
     }
 }

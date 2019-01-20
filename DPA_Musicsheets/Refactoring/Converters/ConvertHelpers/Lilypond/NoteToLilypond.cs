@@ -43,7 +43,10 @@ namespace DPA_Musicsheets.Refactoring.Converters.ConvertHelpers.Lilypond
             // Dots
             if (note.dots != null)
             {
-                returnString += note.dots.dots;
+                for (int i = 0; i < note.dots.dots; i++)
+                {
+                    returnString += '.';
+                }
             }
 
             return returnString;

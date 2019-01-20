@@ -103,40 +103,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\MusicLoaderHelper\Get\GetSequenceFromWPFStaffs.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Get\GetStaffsFromTokens.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Get\GetTokensFromLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Load\LoadLilypondIntoWpfStaffsAndMidi.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Load\LoadMidiIntoLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Load\OpenFile.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToLilypond.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToMidi.cs" />
-    <Compile Include="Helpers\MusicLoaderHelper\Save\SaveToPDF.cs" />
-    <Compile Include="Managers\MidiToLilyHelper.cs" />
-    <Compile Include="Managers\MusicLoader.cs" />
-    <Compile Include="Models\Commandos\Alternative.cs" />
-    <Compile Include="Models\Commandos\Bar.cs" />
-    <Compile Include="Models\Commandos\Clef.cs" />
-    <Compile Include="Models\Commandos\ICommando.cs" />
-    <Compile Include="Models\Commandos\Relative.cs" />
-    <Compile Include="Models\Commandos\Repeat.cs" />
-    <Compile Include="Models\Commandos\SectionEnd.cs" />
-    <Compile Include="Models\Commandos\SectionStart.cs" />
-    <Compile Include="Models\Commandos\Tempo.cs" />
-    <Compile Include="Models\Commandos\Time.cs" />
-    <Compile Include="Models\LilypondToken.cs" />
-    <Compile Include="Models\LilypondTokenKind.cs" />
-    <Compile Include="Models\MusicNotes\BaseNote.cs" />
-    <Compile Include="Models\MusicNotes\MusicNote.cs" />
-    <Compile Include="Models\MusicNotes\NoteDuration.cs" />
-    <Compile Include="Models\MusicNotes\PitchModifier.cs" />
-    <Compile Include="Models\MusicNotes\PitchType.cs" />
-    <Compile Include="Models\MusicNotes\RestNote.cs" />
-    <Compile Include="Models\IMusicToken.cs" />
     <Compile Include="Refactoring\Converters\ConvertHelpers\Lilypond\BarToLilypond.cs" />
     <Compile Include="Refactoring\Converters\ConvertHelpers\Lilypond\IToLilypondConverter.cs" />
     <Compile Include="Refactoring\Converters\ConvertHelpers\Lilypond\MetaToLilypond.cs" />
     <Compile Include="Refactoring\Converters\ConvertHelpers\Lilypond\NoteToLilypond.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\Lilypond\RestToLilypond.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\PSAM\BarToPSAM.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\PSAM\IToPSAM.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\PSAM\MetaToPSAM.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\PSAM\NoteToPSAM.cs" />
+    <Compile Include="Refactoring\Converters\ConvertHelpers\PSAM\RestToPsam.cs" />
+    <Compile Include="Refactoring\Converters\ConvertToMidi.cs" />
     <Compile Include="Refactoring\Domain\Additive\IAdditive.cs" />
     <Compile Include="Refactoring\Domain\Additive\Dots.cs" />
     <Compile Include="Refactoring\Domain\Additive\Flat.cs" />
@@ -153,6 +130,7 @@
     <Compile Include="Refactoring\Domain\Note.cs" />
     <Compile Include="Refactoring\Converters\ConvertToPSAM.cs" />
     <Compile Include="Refactoring\Converters\IConverter.cs" />
+    <Compile Include="Refactoring\Events\MusicLoadedEventArgs.cs" />
     <Compile Include="Refactoring\Load\ILoader.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\ILilypondMessageHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondAlternativeHandler.cs" />
@@ -161,6 +139,7 @@
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondClefHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondNoteHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondRepeatHandler.cs" />
+    <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondRestHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondSectionEndHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondSectionStartHandler.cs" />
     <Compile Include="Refactoring\Load\LoadHelper\Lilypond\LilypondStaffHandler.cs" />
@@ -174,8 +153,9 @@
     <Compile Include="Refactoring\Load\LoadLilypond.cs" />
     <Compile Include="Refactoring\Load\LoadLocator.cs" />
     <Compile Include="Refactoring\Load\LoadMidi.cs" />
+    <Compile Include="Refactoring\MusicList.cs" />
     <Compile Include="Refactoring\MusicLoader.cs" />
-    <Compile Include="Refactoring\OpenFile.cs" />
+    <Compile Include="Refactoring\MusicSaver.cs" />
     <Compile Include="ViewModels\MidiPlayerViewModel.cs" />
     <Compile Include="ViewModels\StaffsViewModel.cs" />
     <Compile Include="Views\MidiPlayerCtrl.xaml.cs">
@@ -294,7 +274,10 @@
     <Content Include="Files\Eenvoudige voorbeeldfiles\Rusten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Standaard_noten.ly" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Refactoring\Converters\ConvertHelpers\Midi\" />
+    <Folder Include="Refactoring\Save\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

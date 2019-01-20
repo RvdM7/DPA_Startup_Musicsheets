@@ -25,7 +25,7 @@ namespace DPA_Musicsheets.Refactoring.Domain
 
         public override string ToString()
         {
-            return $"{bpm}-{beatNote}-{beatsPerBar}";
+            return $"{clef}: {bpm}-{beatNote}-{beatsPerBar}";
         }
 
         public Meta clone()
